@@ -24,7 +24,7 @@ jobs:
       run: |
         cd src
         dotnet restore
-    - name: docfx
+    - name: generate docfx site
       run: |
         dotnet tool install -g docfx
         docfx init -y
@@ -32,3 +32,14 @@ jobs:
         cp README.md index.md
         docfx docfx.json
         ls -alh _site
+    - name: push site to gh-pages
+      run: |
+          git config --global user.name 'Miha Zidar'
+          git config --global user.email 'm.zidar@sportradar.com'
+          git checkout -B gh-pages
+          mv _site .git/
+          rm -rf *
+          mv .git/_site/* .
+          git add .
+          git commit -am "Automated github page generation"
+          git push origin gh-pages -f
