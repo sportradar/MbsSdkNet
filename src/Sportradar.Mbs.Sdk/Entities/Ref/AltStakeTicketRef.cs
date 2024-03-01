@@ -16,4 +16,10 @@ public class AltStakeTicketRef : TicketRefBase
     /// </summary>
     [JsonPropertyName("ticketId")]
     public string? TicketId { get; set; }
+
+    /// <summary>
+    /// Gets or sets the ticket signature.
+    /// </summary>
+    [JsonPropertyName("ticketSignature")]
+    public string? TicketSignature { get; set; }
 }
