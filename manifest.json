@@ -1,0 +1,1748 @@
+{
+  "source_base_path": "/home/runner/work/MbsSdkNet/MbsSdkNet",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.BalanceChangeSourceBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.BalanceChangeSourceBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.BalanceChangeSourceBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.BalanceChangeSourceBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.DepositBalanceChangeSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.DepositBalanceChangeSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.TicketBalanceChangeAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.TicketBalanceChangeAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.TicketBalanceChangeActionJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.TicketBalanceChangeActionJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.TicketBalanceChangeSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.TicketBalanceChangeSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.WithdrawalBalanceChangeSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.WithdrawalBalanceChangeSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Balancechangesource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.BetCancelDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.BetCancelDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.BetPartialCancelDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.BetPartialCancelDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.CancelDetailsBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.CancelDetailsBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.CancelDetailsBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.CancelDetailsBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.ReofferCancelDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.ReofferCancelDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.TicketCancelDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.TicketCancelDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.TicketPartialCancelDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.TicketPartialCancelDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cancellation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.BetCashoutDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.BetCashoutDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.BetPartialCashoutDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.BetPartialCashoutDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.CashoutDetailsBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.CashoutDetailsBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.CashoutDetailsBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.CashoutDetailsBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.TicketCashoutDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.TicketCashoutDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.TicketPartialCashoutDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.TicketPartialCashoutDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Cashout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.BonusCasinoSpin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.BonusCasinoSpin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.CasinoSpinBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.CasinoSpinBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.CasinoSpinBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.CasinoSpinBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.FreeCasinoSpin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.FreeCasinoSpin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.OrdinaryCasinoSpin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.OrdinaryCasinoSpin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Casinospin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.AgentChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.AgentChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.CallCentreChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.CallCentreChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.ChannelBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.ChannelBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.ChannelBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.ChannelBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.InternetChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.InternetChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.MobileAppChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.MobileAppChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.MobileChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.MobileChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.PhoneChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.PhoneChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.RetailChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.RetailChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.SmsChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.SmsChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.TerminalChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.TerminalChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.TvAppChannel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.TvAppChannel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Channel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.AcceptanceStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.AcceptanceStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.AcceptanceStatusJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.AcceptanceStatusJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.Amount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.Amount.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BalanceChangeStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BalanceChangeStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BalanceChangeStatusJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BalanceChangeStatusJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BalanceMoveStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BalanceMoveStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BalanceMoveStatusJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BalanceMoveStatusJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.Bet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.Bet.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BetContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BetContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BetDetail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BetDetail.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BetValidation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.BetValidation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.CasinoContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.CasinoContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.CasinoGame.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.CasinoGame.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.CasinoSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.CasinoSession.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.EndCustomer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.EndCustomer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.ExchangeRate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.ExchangeRate.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.OddsChange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.OddsChange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.OddsChangeJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.OddsChangeJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.PaymentGateway.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.PaymentGateway.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.PaymentMethod.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.PaymentMethod.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.PaymentMethodJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.PaymentMethodJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.SelectionDetail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.SelectionDetail.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.TicketContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.TicketContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Common.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Internal.Request.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Internal.Request.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Internal.Response.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Internal.Response.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Internal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Internal.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Odds.DecimalOdds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Odds.DecimalOdds.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Odds.OddsBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Odds.OddsBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Odds.OddsBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Odds.OddsBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Odds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Odds.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.CashPayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.CashPayout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.FreePayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.FreePayout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.PayoutBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.PayoutBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.PayoutBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.PayoutBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.WithheldPayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.WithheldPayout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Payout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.AltStakeTicketRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.AltStakeTicketRef.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.ReofferTicketRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.ReofferTicketRef.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.TicketRefBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.TicketRefBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.TicketRefBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.TicketRefBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Ref.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.BalanceChangeInformRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.BalanceChangeInformRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CancelAckRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CancelAckRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CancelRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CancelRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CashoutAckRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CashoutAckRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CashoutRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CashoutRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CasinoSessionsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.CasinoSessionsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.ContentRequestBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.ContentRequestBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.ContentRequestBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.ContentRequestBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.DepositInformRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.DepositInformRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.ExtSettlementAckRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.ExtSettlementAckRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.ExtSettlementRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.ExtSettlementRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.TicketAckRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.TicketAckRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.TicketInformRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.TicketInformRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.TicketRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.TicketRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.WithdrawalInformRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.WithdrawalInformRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Request.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.BalanceChangeInformResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.BalanceChangeInformResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CancelAckResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CancelAckResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CancelResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CancelResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CashoutAckResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CashoutAckResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CashoutResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CashoutResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CasinoSessionsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.CasinoSessionsResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ContentResponseBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ContentResponseBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ContentResponseBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ContentResponseBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.DepositInformResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.DepositInformResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ErrorResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ErrorResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ExtSettlementAckResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ExtSettlementAckResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ExtSettlementResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.ExtSettlementResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.TicketAckResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.TicketAckResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.TicketInformResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.TicketInformResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.TicketResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.TicketResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.WithdrawalInformResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.WithdrawalInformResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Response.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.AccumulatorSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.AccumulatorSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.ExtSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.ExtSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.OddsBoostSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.OddsBoostSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.SelectionBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.SelectionBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.SelectionBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.SelectionBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.SystemSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.SystemSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.UfCustomBetSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.UfCustomBetSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.UfSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.UfSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.WaysSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.WaysSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Selection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.BetExtSettlementDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.BetExtSettlementDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.ExtSettlementDetailsBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.ExtSettlementDetailsBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.ExtSettlementDetailsBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.ExtSettlementDetailsBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.TicketExtSettlementDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.TicketExtSettlementDetails.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Settlement.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.BonusStake.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.BonusStake.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.CashStake.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.CashStake.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.FreeCashStake.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.FreeCashStake.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.FreeRolloverStake.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.FreeRolloverStake.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.FreeStake.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.FreeStake.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.StakeBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.StakeBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.StakeBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.StakeBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.StakeMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.StakeMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.StakeModeJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.StakeModeJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Stake.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.AltStakeSuggestion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.AltStakeSuggestion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.ReofferSuggestion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.ReofferSuggestion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.SuggestionBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.SuggestionBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.SuggestionBaseJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.SuggestionBaseJsonConverter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Entities.Suggestion.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.AuthTokenFailureException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.AuthTokenFailureException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ExceptionCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ExceptionCode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolInvalidRequestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolInvalidRequestException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolInvalidResponseException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolInvalidResponseException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolMessageTooBigException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolMessageTooBigException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolSendBufferFullException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolSendBufferFullException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolSendFailedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolSendFailedException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolTimeoutException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ProtocolTimeoutException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.SdkException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.SdkException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.SdkNotConnectedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.SdkNotConnectedException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ServerErrorResponseException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.ServerErrorResponseException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.WebSocketConnectionException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.WebSocketConnectionException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Exceptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.MbsSdk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.MbsSdk.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.MbsSdkConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.MbsSdkConfig.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Protocol.ITicketProtocol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Protocol.ITicketProtocol.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.Protocol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.Protocol.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Sportradar.Mbs.Sdk.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Sportradar.Mbs.Sdk.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
