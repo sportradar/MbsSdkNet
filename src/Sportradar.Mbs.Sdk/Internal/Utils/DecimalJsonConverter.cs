@@ -9,7 +9,7 @@ internal class DecimalJsonConverter : JsonConverter<decimal>
     public override decimal Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         var jsonVal = reader.GetString();
-        if (decimal.TryParse(jsonVal, out var result)) return result;
+        if (decimal.TryParse(jsonVal, NumberStyles.Number, CultureInfo.InvariantCulture, out var result)) return result;
 
         throw new JsonException("Unknown decimal: " + jsonVal);
     }

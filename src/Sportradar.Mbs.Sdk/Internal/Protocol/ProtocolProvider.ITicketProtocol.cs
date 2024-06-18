@@ -13,6 +13,11 @@ internal partial class ProtocolProvider : ITicketProtocol
         return await ProcessRequestAsync<TicketResponse>("ticket-placement", request).ConfigureAwait(false);
     }
 
+    public async Task<TicketInformResponse> SendTicketInformAsync(TicketInformRequest request)
+    {
+        return await ProcessRequestAsync<TicketInformResponse>("ticket-placement-inform", request).ConfigureAwait(false);
+    }
+
     public async Task<TicketAckResponse> SendTicketAckAsync(TicketAckRequest request)
     {
         return await ProcessRequestAsync<TicketAckResponse>("ticket-placement-ack", request).ConfigureAwait(false);

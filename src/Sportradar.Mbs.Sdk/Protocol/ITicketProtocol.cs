@@ -17,6 +17,14 @@ public interface ITicketProtocol
     Task<TicketResponse> SendTicketAsync(TicketRequest request);
 
     /// <summary>
+    /// Sends a ticket inform request asynchronously.
+    /// </summary>
+    /// <param name="request">The ticket inform request to send.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the ticket inform response.</returns>
+    /// <exception cref="SdkException">Thrown when operation has failed.</exception>
+    Task<TicketInformResponse> SendTicketInformAsync(TicketInformRequest request);
+
+    /// <summary>
     /// Sends a ticket acknowledgement request asynchronously.
     /// </summary>
     /// <param name="request">The ticket acknowledgement request to send.</param>

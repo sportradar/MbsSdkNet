@@ -1,4 +1,5 @@
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Exceptions;
@@ -127,7 +128,7 @@ internal class TokenProvider : IDisposable
 
         var response = JsonSerializer.Deserialize<AuthResponse>(content);
         if (response == null || string.IsNullOrEmpty(response.AccessToken))
-            return null;
+            return ProcessPossibleError(response);
 
         var token = response.AccessToken.NotNull();
         if (response.ExpiresIn is > 1)
@@ -137,6 +138,27 @@ internal class TokenProvider : IDisposable
         }
 
         return token;
+    }
+
+    private string? ProcessPossibleError(AuthResponse? authResponse)
+    {
+        if (authResponse == null) return null;
+
+        if (string.IsNullOrEmpty(authResponse.Error) && string.IsNullOrEmpty(authResponse.ErrorDescription))
+            return null;
+
+        var msg = new StringBuilder();
+        msg.Append("Auth error");
+        if (!string.IsNullOrEmpty(authResponse.Error)) 
+        {
+            msg.Append(": ").Append(authResponse.Error.NotNull());
+        }
+        if (!string.IsNullOrEmpty(authResponse.ErrorDescription))
+        {
+            msg.Append(": ").Append(authResponse.ErrorDescription.NotNull());
+        }
+        
+        throw new AuthTokenFailureException(msg.ToString());
     }
 
     public class AuthResponse
@@ -151,5 +173,9 @@ internal class TokenProvider : IDisposable
         public string? RefreshToken { get; set; }
         [JsonPropertyName("scope")]
         public string? Scope { get; set; }
+        [JsonPropertyName("error")]
+        public string? Error { get; set; }
+        [JsonPropertyName("error_description")]
+        public string? ErrorDescription { get; set; }
     }
 }
