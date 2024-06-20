@@ -1,0 +1,969 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class MbsSdkConfig | Mbs SDK </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class MbsSdkConfig | Mbs SDK ">
+      
+      <meta name="description" content="Represents the configuration for the">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/sportradar/MbsSdkNet/new/main/apiSpec/new?filename=Sportradar_Mbs_Sdk_MbsSdkConfig.md&amp;value=---%0Auid%3A%20Sportradar.Mbs.Sdk.MbsSdkConfig%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Mbs SDK">
+            Mbs SDK
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig">
+
+
+
+  <h1 id="Sportradar_Mbs_Sdk_MbsSdkConfig" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig" class="text-break">
+Class MbsSdkConfig  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L6"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Sportradar.html">Sportradar</a>.<a class="xref" href="Sportradar.Mbs.html">Mbs</a>.<a class="xref" href="Sportradar.Mbs.Sdk.html">Sdk</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Sportradar.Mbs.Sdk.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the configuration for the <a class="xref" href="Sportradar.Mbs.Sdk.MbsSdk.html">MbsSdk</a></p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class MbsSdkConfig</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">MbsSdkConfig</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig__ctor_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.#ctor*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig__ctor_System_Uri_System_Uri_System_String_System_String_System_String_System_Int64_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.#ctor(System.Uri,System.Uri,System.String,System.String,System.String,System.Int64)">
+  MbsSdkConfig(Uri, Uri, string, string, string, long)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Sportradar.Mbs.Sdk.MbsSdkConfig.html">MbsSdkConfig</a> class</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MbsSdkConfig(Uri wsServer, Uri authServer, string authClientId, string authClientSecret, string authAudience, long operatorId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>wsServer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd><p>WebSocket server URI</p>
+</dd>
+    <dt><code>authServer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd><p>Auth server URI</p>
+</dd>
+    <dt><code>authClientId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Auth client id</p>
+</dd>
+    <dt><code>authClientSecret</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Auth client secret</p>
+</dd>
+    <dt><code>authAudience</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Auth audience</p>
+</dd>
+    <dt><code>operatorId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Operator id</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthAudience_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthAudience*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthAudience" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthAudience">
+  AuthAudience
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Auth audience</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AuthAudience { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthClientId_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthClientId*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthClientId" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthClientId">
+  AuthClientId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Auth client id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AuthClientId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthClientSecret_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthClientSecret*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthClientSecret" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthClientSecret">
+  AuthClientSecret
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Auth client secret</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AuthClientSecret { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthRequestTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthRequestTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthRequestTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthRequestTimeout">
+  AuthRequestTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Auth request timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? AuthRequestTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthRetryDelay_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthRetryDelay*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthRetryDelay" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthRetryDelay">
+  AuthRetryDelay
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Auth retry delay</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? AuthRetryDelay { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthServer_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthServer*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_AuthServer" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.AuthServer">
+  AuthServer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Auth server URI</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Uri AuthServer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_OperatorId_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.OperatorId*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_OperatorId" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.OperatorId">
+  OperatorId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Operator id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long OperatorId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolConnectTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolConnectTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolConnectTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolConnectTimeout">
+  ProtocolConnectTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Protocol connect timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? ProtocolConnectTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolDequeueTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolDequeueTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolDequeueTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolDequeueTimeout">
+  ProtocolDequeueTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Protocol dequeue timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? ProtocolDequeueTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolEnqueueTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolEnqueueTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolEnqueueTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolEnqueueTimeout">
+  ProtocolEnqueueTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Protocol enqueue timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? ProtocolEnqueueTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolMaxSendBufferSize_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolMaxSendBufferSize*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolMaxSendBufferSize" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolMaxSendBufferSize">
+  ProtocolMaxSendBufferSize
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Protocol max send buffer size</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ProtocolMaxSendBufferSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolNumberOfDispatchers_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolNumberOfDispatchers*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolNumberOfDispatchers" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolNumberOfDispatchers">
+  ProtocolNumberOfDispatchers
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of Protocol dispatchers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ProtocolNumberOfDispatchers { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolReceiveResponseTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolReceiveResponseTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolReceiveResponseTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolReceiveResponseTimeout">
+  ProtocolReceiveResponseTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Protocol receive response timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? ProtocolReceiveResponseTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolRetryCount_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolRetryCount*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_ProtocolRetryCount" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.ProtocolRetryCount">
+  ProtocolRetryCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the Protocol retry count</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ProtocolRetryCount { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_UnhandledExceptionHandler_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.UnhandledExceptionHandler*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_UnhandledExceptionHandler" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.UnhandledExceptionHandler">
+  UnhandledExceptionHandler
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the unhandled exception handler</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;MbsSdk, Exception&gt;? UnhandledExceptionHandler { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-2">Action</a>&lt;<a class="xref" href="Sportradar.Mbs.Sdk.MbsSdk.html">MbsSdk</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsConsumerGraceTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsConsumerGraceTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsConsumerGraceTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsConsumerGraceTimeout">
+  WsConsumerGraceTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the WebSocket consumer grace timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? WsConsumerGraceTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsFetchMessageTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsFetchMessageTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsFetchMessageTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsFetchMessageTimeout">
+  WsFetchMessageTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the WebSocket fetch message timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? WsFetchMessageTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsNumberOfConnections_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsNumberOfConnections*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsNumberOfConnections" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsNumberOfConnections">
+  WsNumberOfConnections
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the number of WebSocket connections</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? WsNumberOfConnections { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsReceiveMessageTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsReceiveMessageTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsReceiveMessageTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsReceiveMessageTimeout">
+  WsReceiveMessageTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the WebSocket receive message timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? WsReceiveMessageTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsReconnectTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsReconnectTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsReconnectTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsReconnectTimeout">
+  WsReconnectTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the WebSocket reconnect timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? WsReconnectTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsRefreshConnectionTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsRefreshConnectionTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsRefreshConnectionTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsRefreshConnectionTimeout">
+  WsRefreshConnectionTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L136"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the WebSocket refresh connection timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? WsRefreshConnectionTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsSendMessageTimeout_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsSendMessageTimeout*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsSendMessageTimeout" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsSendMessageTimeout">
+  WsSendMessageTimeout
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the WebSocket send message timeout</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan? WsSendMessageTimeout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsServer_" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsServer*"></a>
+
+  <h3 id="Sportradar_Mbs_Sdk_MbsSdkConfig_WsServer" data-uid="Sportradar.Mbs.Sdk.MbsSdkConfig.WsServer">
+  WsServer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the WebSocket server URI</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Uri WsServer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs/#L6" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

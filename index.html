@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Mbs SDK | Mbs SDK </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Mbs SDK | Mbs SDK ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/sportradar/MbsSdkNet/blob/main/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="Mbs SDK">
+            Mbs SDK
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mbs-sdk">Mbs SDK</h1>
+
+<hr>
+<p>Mbs SDK is a client library that enables easier integration with the Mbs web interface. SDK provides entities (messages sent to and recevived from the server) as well as websocket connection handling.</p>
+<h3 id="installation">Installation</h3>
+<p>SDK can be obtained from <a href="https://www.nuget.org/packages/Sportradar.Mbs.Sdk">nuget repository</a>.</p>
+<h3 id="usage">Usage</h3>
+<h4 id="initialize-the-sdk">Initialize the SDK</h4>
+<p>Create <a href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdkConfig.cs">MbsSdkConfig</a> configuration object with the values provided by Sportradar:</p>
+<pre><code class="lang-C#">MbsSdkConfig config = new MbsSdkConfig(
+        wsServer, authServer, authClientId, authClientSecret, authAudience, operatorId);
+</code></pre>
+<p>Use the <code>config</code> to create <a href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/MbsSdk.cs">MbsSdk</a> instance and establish a connection to the server:</p>
+<pre><code class="lang-C#">MbsSdk mbsSdk = new MbsSdk(config);
+mbsSdk.Connect();
+</code></pre>
+<p>The SDK is threadsafe and a single instance can be used for the entire application lifespan.</p>
+<h4 id="use-the-sdk">Use the SDK</h4>
+<p>Operations that are supported by the SDK are grouped into protocols, eg: all ticket operations are available under <a href="https://github.com/sportradar/MbsSdkNet/blob/main/src/Sportradar.Mbs.Sdk/Protocol/ITicketProtocol.cs">ITicketProtocol</a>.</p>
+<p>The SDK instances exposes all the protocols through getter property, eg:</p>
+<pre><code class="lang-C#">mbsSdk.TicketProtocol;
+</code></pre>
+<p>Each operation (method) exposed by the protocol is generally of a request/response form. Each method accepts its Request object (eg: TicketRequest, CancelRequest, ...) and returns matching Response object (eg: TicketResponse, CancelResponse, ...) and each method can be used in async or blocking context:</p>
+<pre><code class="lang-C#">// create appropriate request
+OperationRequest request = new OperationRequest();
+// async
+OperationResponse response = await mbsSdk.Protocol.executeOperationAsync(request);
+// blocking
+OperationResponse response = mbsSdk.Protocol.executeOperationAsync(request).Result;
+</code></pre>
+<p>Example of ticket place operation:</p>
+<pre><code class="lang-C#">TicketRequest request = new TicketRequest
+{
+    Context = new TicketContext
+    {
+        LimitId = 1234567890,
+        ... // omitted for brevity
+    },
+    TicketId = &quot;ticketId-1234567890&quot;,
+    ... // omitted for brevity
+};
+TicketResponse response = await sdk.TicketProtocol.SendTicketAsync(request);
+</code></pre>
+<h4 id="close-the-sdk">Close the SDK</h4>
+<p>When MbsSdk instance is not needed anymore, invoke <code>Dispose()</code> to release the resources:</p>
+<pre><code class="lang-C#">mbsSdk.Dispose();
+</code></pre>
+<h3 id="further-reading">Further reading</h3>
+<p><a href="https://docs.betradar.com">Betradar documentation</a></p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/sportradar/MbsSdkNet/blob/main/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
