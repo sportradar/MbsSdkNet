@@ -35,6 +35,7 @@ public class ContentRequestBaseJsonConverter : JsonConverter<ContentRequestBase>
             "withdrawal-inform" => JsonSerializer.Deserialize<WithdrawalInformRequest>(root.GetRawText()),
             "ext-settlement-ack" => JsonSerializer.Deserialize<ExtSettlementAckRequest>(root.GetRawText()),
             "balance-change-inform" => JsonSerializer.Deserialize<BalanceChangeInformRequest>(root.GetRawText()),
+            "cashout-inform" => JsonSerializer.Deserialize<CashoutInformRequest>(root.GetRawText()),
             _ => throw new JsonException("Unknown type of ContentRequestBase: " + type)
         };
         return result ?? throw new NullReferenceException("Null ContentRequestBase: " + type);

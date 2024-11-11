@@ -27,7 +27,7 @@ internal partial class ProtocolProvider : ITicketProtocol
     {
         return await ProcessRequestAsync<CancelResponse>("ticket-cancel", request).ConfigureAwait(false);
     }
-
+    
     public async Task<CancelAckResponse> SendCancelAckAsync(CancelAckRequest request)
     {
         return await ProcessRequestAsync<CancelAckResponse>("ticket-cancel-ack", request).ConfigureAwait(false);
@@ -36,6 +36,11 @@ internal partial class ProtocolProvider : ITicketProtocol
     public async Task<CashoutResponse> SendCashoutAsync(CashoutRequest request)
     {
         return await ProcessRequestAsync<CashoutResponse>("ticket-cashout", request).ConfigureAwait(false);
+    }
+    
+    public async Task<CashoutInformResponse> SendCashoutInformAsync(CashoutInformRequest request)
+    {
+        return await ProcessRequestAsync<CashoutInformResponse>("cashout-inform", request).ConfigureAwait(false);
     }
 
     public async Task<CashoutAckResponse> SendCashoutAckAsync(CashoutAckRequest request)

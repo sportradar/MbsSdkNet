@@ -49,6 +49,14 @@ public interface ITicketProtocol
     Task<CancelAckResponse> SendCancelAckAsync(CancelAckRequest request);
 
     /// <summary>
+    /// Sends a cashout inform request asynchronously.
+    /// </summary>
+    /// <param name="request">The cashout inform request to send.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the cashout inform response.</returns>
+    /// <exception cref="SdkException">Thrown when operation has failed.</exception>
+    Task<CashoutInformResponse> SendCashoutInformAsync(CashoutInformRequest request);
+    
+    /// <summary>
     /// Sends a cashout request asynchronously.
     /// </summary>
     /// <param name="request">The cashout request to send.</param>
