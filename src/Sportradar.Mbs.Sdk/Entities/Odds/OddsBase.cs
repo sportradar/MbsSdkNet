@@ -21,7 +21,12 @@ public class OddsBaseJsonConverter : JsonConverter<OddsBase>
 
         OddsBase? result = type switch
         {
+            "indonesian" => JsonSerializer.Deserialize<IndonesianOdds>(root.GetRawText()),
+            "hong-kong" => JsonSerializer.Deserialize<HongKongOdds>(root.GetRawText()),
+            "fractional" => JsonSerializer.Deserialize<FractionalOdds>(root.GetRawText()),
             "decimal" => JsonSerializer.Deserialize<DecimalOdds>(root.GetRawText()),
+            "moneyline" => JsonSerializer.Deserialize<MoneylineOdds>(root.GetRawText()),
+            "malay" => JsonSerializer.Deserialize<MalayOdds>(root.GetRawText()),
             _ => throw new JsonException("Unknown type of OddsBase: " + type)
         };
         return result ?? throw new NullReferenceException("Null OddsBase: " + type);
