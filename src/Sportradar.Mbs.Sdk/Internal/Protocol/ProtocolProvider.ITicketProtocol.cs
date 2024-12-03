@@ -57,4 +57,9 @@ internal partial class ProtocolProvider : ITicketProtocol
     {
         return await ProcessRequestAsync<ExtSettlementAckResponse>("ticket-ext-settlement-ack", request).ConfigureAwait(false);
     }
+
+    public async Task<MaxStakeResponse> SendMaxStakeAsync(MaxStakeRequest request)
+    {
+        return await ProcessRequestAsync<MaxStakeResponse>("max-stake", request).ConfigureAwait(false);
+    }
 }

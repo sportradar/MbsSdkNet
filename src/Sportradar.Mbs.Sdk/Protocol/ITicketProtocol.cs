@@ -87,4 +87,12 @@ public interface ITicketProtocol
     /// <returns>A task that represents the asynchronous operation. The task result contains the external settlement acknowledgement response.</returns>
     /// <exception cref="SdkException">Thrown when operation has failed.</exception>
     Task<ExtSettlementAckResponse> SendExtSettlementAckAsync(ExtSettlementAckRequest request);
+
+    /// <summary>
+    /// Sends a max stake request asynchronously.
+    /// </summary>
+    /// <param name="request">The max stake request to send.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the max stake response.</returns>
+    /// <exception cref="SdkException">Thrown when operation has failed.</exception>
+    Task<MaxStakeResponse> SendMaxStakeAsync(MaxStakeRequest request);
 }

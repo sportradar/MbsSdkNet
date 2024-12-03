@@ -37,6 +37,7 @@ public class ContentResponseBaseJsonConverter : JsonConverter<ContentResponseBas
             "ticket-reply" => JsonSerializer.Deserialize<TicketResponse>(root.GetRawText()),
             "withdrawal-inform-reply" => JsonSerializer.Deserialize<WithdrawalInformResponse>(root.GetRawText()),
             "cashout-inform-reply" => JsonSerializer.Deserialize<CashoutInformResponse>(root.GetRawText()),
+            "max-stake-reply" => JsonSerializer.Deserialize<MaxStakeResponse>(root.GetRawText()),
             _ => throw new JsonException("Unknown type of ContentResponseBase: " + type)
         };
         return result ?? throw new NullReferenceException("Null ContentResponseBase: " + type);
