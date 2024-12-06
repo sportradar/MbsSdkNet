@@ -27,13 +27,13 @@ internal class ImmutableConfig :
         WsReconnectTimeout =
             (parent.WsReconnectTimeout ?? TimeSpan.FromSeconds(10)).AtLeast(MinTimeSpan);
         WsFetchMessageTimeout =
-            (parent.WsFetchMessageTimeout ?? TimeSpan.FromSeconds(1)).AtLeast(MinTimeSpan);
+            (parent.WsFetchMessageTimeout ?? TimeSpan.FromSeconds(2)).AtLeast(MinTimeSpan);
         WsSendMessageTimeout =
             (parent.WsSendMessageTimeout ?? TimeSpan.FromSeconds(1)).AtLeast(MinTimeSpan);
         WsReceiveMessageTimeout =
-            (parent.WsReceiveMessageTimeout ?? TimeSpan.FromSeconds(30)).AtLeast(MinTimeSpan);
+            (parent.WsReceiveMessageTimeout ?? TimeSpan.FromMinutes(110)).AtLeast(MinTimeSpan);
         WsConsumerGraceTimeout =
-            (parent.WsConsumerGraceTimeout ?? TimeSpan.FromMinutes(1)).AtLeast(MinTimeSpan);
+            (parent.WsConsumerGraceTimeout ?? TimeSpan.FromMinutes(10)).AtLeast(MinTimeSpan);
         WsRefreshConnectionTimeout =
             (parent.WsRefreshConnectionTimeout ?? TimeSpan.FromMinutes(100)).AtLeast(MinTimeSpan);
         ProtocolRetryCount =
@@ -41,13 +41,13 @@ internal class ImmutableConfig :
         ProtocolMaxSendBufferSize =
             (parent.ProtocolMaxSendBufferSize ?? 1_000).AtLeast(1);
         ProtocolConnectTimeout =
-            (parent.ProtocolConnectTimeout ?? TimeSpan.FromSeconds(10)).AtLeast(MinTimeSpan);
+            (parent.ProtocolConnectTimeout ?? TimeSpan.FromSeconds(15)).AtLeast(MinTimeSpan);
         ProtocolReceiveResponseTimeout =
             (parent.ProtocolReceiveResponseTimeout ?? TimeSpan.FromSeconds(20)).AtLeast(MinTimeSpan);
         ProtocolEnqueueTimeout =
             (parent.ProtocolEnqueueTimeout ?? TimeSpan.FromMilliseconds(100)).AtLeast(MinTimeSpan);
         ProtocolDequeueTimeout =
-            (parent.ProtocolDequeueTimeout ?? TimeSpan.FromMilliseconds(1_000)).AtLeast(MinTimeSpan);
+            (parent.ProtocolDequeueTimeout ?? TimeSpan.FromSeconds(2)).AtLeast(MinTimeSpan);
         ProtocolNumberOfDispatchers =
             (parent.ProtocolNumberOfDispatchers ?? 1).AtLeast(1);
     }
