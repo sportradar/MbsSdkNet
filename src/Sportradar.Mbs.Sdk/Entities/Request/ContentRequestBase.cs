@@ -37,6 +37,7 @@ public class ContentRequestBaseJsonConverter : JsonConverter<ContentRequestBase>
             "balance-change-inform" => JsonSerializer.Deserialize<BalanceChangeInformRequest>(root.GetRawText()),
             "cashout-inform" => JsonSerializer.Deserialize<CashoutInformRequest>(root.GetRawText()),
             "max-stake" => JsonSerializer.Deserialize<MaxStakeRequest>(root.GetRawText()),
+            "financial-limit-inform-reply" => JsonSerializer.Deserialize<FinancialLimitInformRequest>(root.GetRawText()),
             "session-limit-inform-reply" => JsonSerializer.Deserialize<SessionLimitInformRequest>(root.GetRawText()),
             "limit-reached-inform-reply" => JsonSerializer.Deserialize<LimitReachedInformRequest>(root.GetRawText()),
             _ => throw new JsonException("Unknown type of ContentRequestBase: " + type)
