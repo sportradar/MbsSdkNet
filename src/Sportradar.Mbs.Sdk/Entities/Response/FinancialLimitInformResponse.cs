@@ -22,4 +22,10 @@ public class FinancialLimitInformResponse : ContentResponseBase
     /// </summary>
     [JsonPropertyName("message")]
     public string? Message { get; set; }
+
+    /// <summary>
+    /// Gets or sets the signature.
+    /// </summary>
+    [JsonPropertyName("signature")]
+    public string? Signature { get; set; }
 }
