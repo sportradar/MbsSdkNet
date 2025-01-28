@@ -20,12 +20,6 @@ public class FinancialLimitInformRequest : ContentRequestBase
     public EndCustomer? EndCustomer { get; set; }
 
     /// <summary>
-    /// Gets or sets the UTC millis timestamp when the limit change was made.
-    /// </summary>
-    [JsonPropertyName("timestampUtc")]
-    public long TimestampUtc { get; set; }
-
-    /// <summary>
     /// Gets or sets the type of limit.
     /// </summary>
     [JsonPropertyName("limitType")]

@@ -20,12 +20,6 @@ public class LimitReachedInformRequest : ContentRequestBase
     public EndCustomer? EndCustomer { get; set; }
 
     /// <summary>
-    /// Gets or sets the UTC millis timestamp when the limit was reached.
-    /// </summary>
-    [JsonPropertyName("timestampUtc")]
-    public long TimestampUtc { get; set; }
-
-    /// <summary>
     /// Gets or sets the type of limit that was reached.
     /// </summary>
     [JsonPropertyName("limitType")]

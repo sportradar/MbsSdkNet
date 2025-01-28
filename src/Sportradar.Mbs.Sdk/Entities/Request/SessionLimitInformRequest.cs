@@ -19,12 +19,6 @@ public class SessionLimitInformRequest : ContentRequestBase
     public EndCustomer? EndCustomer { get; set; }
 
     /// <summary>
-    /// Gets or sets the UTC millis timestamp when the limit change was made.
-    /// </summary>
-    [JsonPropertyName("timestampUtc")]
-    public long TimestampUtc { get; set; }
-
-    /// <summary>
     /// Gets or sets the new session limit duration in minutes.
     /// </summary>
     [JsonPropertyName("duration")]
