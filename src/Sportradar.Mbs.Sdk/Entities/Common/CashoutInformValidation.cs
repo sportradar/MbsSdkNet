@@ -18,4 +18,10 @@ public class CashoutInformValidation
     /// </summary>
     [JsonPropertyName("message")]
     public string? Message { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the rejected flag.
+    /// </summary>
+    [JsonPropertyName("rejected")]
+    public bool? Rejected { get; set; }
 }
