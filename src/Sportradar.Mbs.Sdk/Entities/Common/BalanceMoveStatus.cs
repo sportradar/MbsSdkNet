@@ -8,7 +8,8 @@ public enum BalanceMoveStatus
 {
     PENDING,
     APPROVED,
-    REJECTED
+    REJECTED,
+    CANCELLED
 }
 
 public class BalanceMoveStatusJsonConverter : JsonConverter<BalanceMoveStatus>
@@ -21,6 +22,7 @@ public class BalanceMoveStatusJsonConverter : JsonConverter<BalanceMoveStatus>
             "pending" => BalanceMoveStatus.PENDING,
             "approved" => BalanceMoveStatus.APPROVED,
             "rejected" => BalanceMoveStatus.REJECTED,
+            "cancelled" => BalanceMoveStatus.CANCELLED,
             _ => throw new JsonException("Unknown type of BalanceMoveStatus: " + jsonVal)
         };
     }
@@ -32,6 +34,7 @@ public class BalanceMoveStatusJsonConverter : JsonConverter<BalanceMoveStatus>
             BalanceMoveStatus.PENDING => "pending",
             BalanceMoveStatus.APPROVED => "approved",
             BalanceMoveStatus.REJECTED => "rejected",
+            BalanceMoveStatus.CANCELLED => "cancelled",
             _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
         };
         writer.WriteStringValue(jsonVal);

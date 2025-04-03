@@ -29,7 +29,7 @@ public class PaymentGateway
     /// Gets or sets the UTC millis timestamp when the payment was initiated.
     /// </summary>
     [JsonPropertyName("initiatedAtUtc")]
-    public long InitiatedAtUtc { get; set; }
+    public long? InitiatedAtUtc { get; set; }
 
     /// <summary>
     /// Gets or sets the reference ID of the payment (ID in the source system).

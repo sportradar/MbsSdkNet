@@ -29,6 +29,16 @@ public class MbsSdk : IDisposable
     }
 
     /// <summary>
+    /// Gets the account protocol.
+    /// </summary>
+    public IAccountProtocol AccountProtocol => _protocolProvider.AccountProtocol;
+
+    /// <summary>
+    /// Gets the balance protocol.
+    /// </summary>
+    public IBalanceProtocol BalanceProtocol => _protocolProvider.BalanceProtocol;
+
+    /// <summary>
     /// Gets the ticket protocol.
     /// </summary>
     public ITicketProtocol TicketProtocol => _protocolProvider.TicketProtocol;

@@ -46,7 +46,7 @@ public class WithdrawalInformRequest : ContentRequestBase
     /// Gets or sets the UTC millis timestamp when the withdrawal was initiated.
     /// </summary>
     [JsonPropertyName("initiatedAtUtc")]
-    public long InitiatedAtUtc { get; set; }
+    public long? InitiatedAtUtc { get; set; }
 
     /// <summary>
     /// Gets or sets the payment gateway used for the withdrawal.
