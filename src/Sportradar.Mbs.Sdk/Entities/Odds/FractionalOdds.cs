@@ -10,7 +10,7 @@ public class FractionalOdds : OddsBase
   [JsonPropertyName("type")]
   private string Type => "fractional";
 
-  [JsonConverter(typeof(DecimalJsonConverter))]
+  [JsonConverter(typeof(LongJsonConverter))]
   [JsonPropertyName("numerator")]
   public long? Numerator { get; set; }
 
