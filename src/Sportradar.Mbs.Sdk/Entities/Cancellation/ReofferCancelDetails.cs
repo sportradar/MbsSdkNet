@@ -2,33 +2,56 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Cancellation;
 
-/// <summary>
-/// Represents the details of a reoffer cancellation.
-/// </summary>
 public class ReofferCancelDetails : CancelDetailsBase
 {
-    /// <summary>
-    /// Gets the type of the cancellation details.
-    /// </summary>
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "reoffer";
 
-    /// <summary>
-    /// Gets or sets the cancellation code.
-    /// </summary>
-    [JsonPropertyName("code")]
-    public int Code { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "reoffer";
 
-    /// <summary>
-    /// Gets or sets the ticket signature of ticket being cancelled.
-    /// </summary>
-    [JsonPropertyName("ticketSignature")]
-    public string? TicketSignature { get; set; }
+  [JsonPropertyName("code")]
+  public int Code { get; set; }
 
-    /// <summary>
-    /// Gets or sets the ticket ID of ticket being cancelled.
-    /// </summary>
-    [JsonPropertyName("ticketId")]
-    public string? TicketId { get; set; }
+  [JsonPropertyName("ticketSignature")]
+  public String? TicketSignature { get; set; }
+
+  [JsonPropertyName("ticketId")]
+  public String? TicketId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly ReofferCancelDetails instance = new ReofferCancelDetails();
+
+    internal Builder()
+    {
+    }
+
+    public ReofferCancelDetails Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetCode(int value)
+    {
+      this.instance.Code = value;
+      return this;
+    }
+
+    public Builder SetTicketSignature(String value)
+    {
+      this.instance.TicketSignature = value;
+      return this;
+    }
+
+    public Builder SetTicketId(String value)
+    {
+      this.instance.TicketId = value;
+      return this;
+    }
+  }
 }

@@ -2,36 +2,65 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Request;
 
-/// <summary>
-/// Represents a request to acknowledge the cancellation of a ticket.
-/// </summary>
 public class CancelAckRequest : ContentRequestBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "cancel-ack";
 
-    /// <summary>
-    /// Gets or sets the cancellation signature.
-    /// </summary>
-    [JsonPropertyName("cancellationSignature")]
-    public string? CancellationSignature { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "cancel-ack";
 
-    /// <summary>
-    /// Gets or sets a value indicating whether the cancellation has been acknowledged.
-    /// </summary>
-    [JsonPropertyName("acknowledged")]
-    public bool? Acknowledged { get; set; }
+  [JsonPropertyName("cancellationSignature")]
+  public String? CancellationSignature { get; set; }
 
-    /// <summary>
-    /// Gets or sets the cancellation ID.
-    /// </summary>
-    [JsonPropertyName("cancellationId")]
-    public string? CancellationId { get; set; }
+  [JsonPropertyName("acknowledged")]
+  public bool Acknowledged { get; set; }
 
-    /// <summary>
-    /// Gets or sets the ticket ID.
-    /// </summary>
-    [JsonPropertyName("ticketId")]
-    public string? TicketId { get; set; }
+  [JsonPropertyName("cancellationId")]
+  public String? CancellationId { get; set; }
+
+  [JsonPropertyName("ticketId")]
+  public String? TicketId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly CancelAckRequest instance = new CancelAckRequest();
+
+    internal Builder()
+    {
+    }
+
+    public CancelAckRequest Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetCancellationSignature(String value)
+    {
+      this.instance.CancellationSignature = value;
+      return this;
+    }
+
+    public Builder SetAcknowledged(bool value)
+    {
+      this.instance.Acknowledged = value;
+      return this;
+    }
+
+    public Builder SetCancellationId(String value)
+    {
+      this.instance.CancellationId = value;
+      return this;
+    }
+
+    public Builder SetTicketId(String value)
+    {
+      this.instance.TicketId = value;
+      return this;
+    }
+  }
 }

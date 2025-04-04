@@ -2,30 +2,56 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Channel;
 
-/// <summary>
-/// Represents a TV app channel.
-/// </summary>
 public class TvAppChannel : ChannelBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "tv-app";
 
-    /// <summary>
-    /// Gets or sets the IP address.
-    /// </summary>
-    [JsonPropertyName("ip")]
-    public string? Ip { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "tv-app";
 
-    /// <summary>
-    /// Gets or sets the language.
-    /// </summary>
-    [JsonPropertyName("lang")]
-    public string? Lang { get; set; }
+  [JsonPropertyName("ip")]
+  public String? Ip { get; set; }
 
-    /// <summary>
-    /// Gets or sets the device ID.
-    /// </summary>
-    [JsonPropertyName("deviceId")]
-    public string? DeviceId { get; set; }
+  [JsonPropertyName("lang")]
+  public String? Lang { get; set; }
+
+  [JsonPropertyName("deviceId")]
+  public String? DeviceId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly TvAppChannel instance = new TvAppChannel();
+
+    internal Builder()
+    {
+    }
+
+    public TvAppChannel Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetIp(String value)
+    {
+      this.instance.Ip = value;
+      return this;
+    }
+
+    public Builder SetLang(String value)
+    {
+      this.instance.Lang = value;
+      return this;
+    }
+
+    public Builder SetDeviceId(String value)
+    {
+      this.instance.DeviceId = value;
+      return this;
+    }
+  }
 }

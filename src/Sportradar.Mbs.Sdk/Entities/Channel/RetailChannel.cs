@@ -2,30 +2,56 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Channel;
 
-/// <summary>
-/// Represents a retail channel.
-/// </summary>
 public class RetailChannel : ChannelBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "retail";
 
-    /// <summary>
-    /// Gets or sets the shop ID.
-    /// </summary>
-    [JsonPropertyName("shopId")]
-    public string? ShopId { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "retail";
 
-    /// <summary>
-    /// Gets or sets the language.
-    /// </summary>
-    [JsonPropertyName("lang")]
-    public string? Lang { get; set; }
+  [JsonPropertyName("shopId")]
+  public String? ShopId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the device ID.
-    /// </summary>
-    [JsonPropertyName("deviceId")]
-    public string? DeviceId { get; set; }
+  [JsonPropertyName("lang")]
+  public String? Lang { get; set; }
+
+  [JsonPropertyName("deviceId")]
+  public String? DeviceId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly RetailChannel instance = new RetailChannel();
+
+    internal Builder()
+    {
+    }
+
+    public RetailChannel Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetShopId(String value)
+    {
+      this.instance.ShopId = value;
+      return this;
+    }
+
+    public Builder SetLang(String value)
+    {
+      this.instance.Lang = value;
+      return this;
+    }
+
+    public Builder SetDeviceId(String value)
+    {
+      this.instance.DeviceId = value;
+      return this;
+    }
+  }
 }

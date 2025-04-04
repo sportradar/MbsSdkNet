@@ -1,38 +1,67 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Entities.Odds;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Selection;
 
-/// <summary>
-/// Represents an external selection.
-/// </summary>
 public class ExtSelection : SelectionBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "external";
 
-    /// <summary>
-    /// Gets or sets the expected settlement time of the selection.
-    /// </summary>
-    [JsonPropertyName("expSettleTime")]
-    public long ExpSettleTime { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "external";
 
-    /// <summary>
-    /// Gets or sets the odds of the selection.
-    /// </summary>
-    [JsonPropertyName("odds")]
-    public OddsBase? Odds { get; set; }
+  [JsonPropertyName("expSettleTime")]
+  public long ExpSettleTime { get; set; }
 
-    /// <summary>
-    /// Gets or sets the event associated with the selection.
-    /// </summary>
-    [JsonPropertyName("event")]
-    public string? Event { get; set; }
+  [JsonPropertyName("odds")]
+  public OddsBase? Odds { get; set; }
 
-    /// <summary>
-    /// Gets or sets the outcome identifier of the selection.
-    /// </summary>
-    [JsonPropertyName("outcome")]
-    public string? Outcome { get; set; }
+  [JsonPropertyName("event")]
+  public String? Event { get; set; }
+
+  [JsonPropertyName("outcome")]
+  public String? Outcome { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly ExtSelection instance = new ExtSelection();
+
+    internal Builder()
+    {
+    }
+
+    public ExtSelection Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetExpSettleTime(long value)
+    {
+      this.instance.ExpSettleTime = value;
+      return this;
+    }
+
+    public Builder SetOdds(OddsBase value)
+    {
+      this.instance.Odds = value;
+      return this;
+    }
+
+    public Builder SetEvent(String value)
+    {
+      this.instance.Event = value;
+      return this;
+    }
+
+    public Builder SetOutcome(String value)
+    {
+      this.instance.Outcome = value;
+      return this;
+    }
+  }
 }

@@ -2,26 +2,52 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Common;
 
-/// <summary>
-/// Represents validation object.
-/// </summary>
 public class CashoutInformValidation
 {
-    /// <summary>
-    /// Gets or sets the code.
-    /// </summary>
-    [JsonPropertyName("code")]
-    public int? Code { get; set; }
 
-    /// <summary>
-    /// Gets or sets the message.
-    /// </summary>
-    [JsonPropertyName("message")]
-    public string? Message { get; set; }
-    
-    /// <summary>
-    /// Gets or sets the rejected flag.
-    /// </summary>
-    [JsonPropertyName("rejected")]
-    public bool? Rejected { get; set; }
+  [JsonPropertyName("code")]
+  public int Code { get; set; }
+
+  [JsonPropertyName("rejected")]
+  public bool Rejected { get; set; }
+
+  [JsonPropertyName("message")]
+  public String? Message { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly CashoutInformValidation instance = new CashoutInformValidation();
+
+    internal Builder()
+    {
+    }
+
+    public CashoutInformValidation Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetCode(int value)
+    {
+      this.instance.Code = value;
+      return this;
+    }
+
+    public Builder SetRejected(bool value)
+    {
+      this.instance.Rejected = value;
+      return this;
+    }
+
+    public Builder SetMessage(String value)
+    {
+      this.instance.Message = value;
+      return this;
+    }
+  }
 }

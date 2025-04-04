@@ -2,18 +2,38 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Channel;
 
-/// <summary>
-/// Represents a phone channel.
-/// </summary>
 public class PhoneChannel : ChannelBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "phone";
 
-    /// <summary>
-    /// Gets or sets the language.
-    /// </summary>
-    [JsonPropertyName("lang")]
-    public string? Lang { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "phone";
+
+  [JsonPropertyName("lang")]
+  public String? Lang { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly PhoneChannel instance = new PhoneChannel();
+
+    internal Builder()
+    {
+    }
+
+    public PhoneChannel Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetLang(String value)
+    {
+      this.instance.Lang = value;
+      return this;
+    }
+  }
 }

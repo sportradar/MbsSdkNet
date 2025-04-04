@@ -2,36 +2,65 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Request;
 
-/// <summary>
-/// Represents a request to acknowledge a cashout.
-/// </summary>
 public class CashoutAckRequest : ContentRequestBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "cashout-ack";
 
-    /// <summary>
-    /// Gets or sets a value indicating whether the cashout has been acknowledged.
-    /// </summary>
-    [JsonPropertyName("acknowledged")]
-    public bool? Acknowledged { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "cashout-ack";
 
-    /// <summary>
-    /// Gets or sets the cashout ID.
-    /// </summary>
-    [JsonPropertyName("cashoutId")]
-    public string? CashoutId { get; set; }
+  [JsonPropertyName("acknowledged")]
+  public bool Acknowledged { get; set; }
 
-    /// <summary>
-    /// Gets or sets the cashout signature.
-    /// </summary>
-    [JsonPropertyName("cashoutSignature")]
-    public string? CashoutSignature { get; set; }
+  [JsonPropertyName("cashoutId")]
+  public String? CashoutId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the ticket ID.
-    /// </summary>
-    [JsonPropertyName("ticketId")]
-    public string? TicketId { get; set; }
+  [JsonPropertyName("cashoutSignature")]
+  public String? CashoutSignature { get; set; }
+
+  [JsonPropertyName("ticketId")]
+  public String? TicketId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly CashoutAckRequest instance = new CashoutAckRequest();
+
+    internal Builder()
+    {
+    }
+
+    public CashoutAckRequest Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetAcknowledged(bool value)
+    {
+      this.instance.Acknowledged = value;
+      return this;
+    }
+
+    public Builder SetCashoutId(String value)
+    {
+      this.instance.CashoutId = value;
+      return this;
+    }
+
+    public Builder SetCashoutSignature(String value)
+    {
+      this.instance.CashoutSignature = value;
+      return this;
+    }
+
+    public Builder SetTicketId(String value)
+    {
+      this.instance.TicketId = value;
+      return this;
+    }
+  }
 }

@@ -1,28 +1,54 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Entities.Channel;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Common;
 
-/// <summary>
-/// Represents the context of a casino.
-/// </summary>
 public class CasinoContext
 {
-    /// <summary>
-    /// Gets or sets the wallet ID.
-    /// </summary>
-    [JsonPropertyName("walletId")]
-    public string? WalletId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the channel.
-    /// </summary>
-    [JsonPropertyName("channel")]
-    public ChannelBase? Channel { get; set; }
+  [JsonPropertyName("walletId")]
+  public String? WalletId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the end customer.
-    /// </summary>
-    [JsonPropertyName("endCustomer")]
-    public EndCustomer? EndCustomer { get; set; }
+  [JsonPropertyName("channel")]
+  public ChannelBase? Channel { get; set; }
+
+  [JsonPropertyName("endCustomer")]
+  public EndCustomer? EndCustomer { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly CasinoContext instance = new CasinoContext();
+
+    internal Builder()
+    {
+    }
+
+    public CasinoContext Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetWalletId(String value)
+    {
+      this.instance.WalletId = value;
+      return this;
+    }
+
+    public Builder SetChannel(ChannelBase value)
+    {
+      this.instance.Channel = value;
+      return this;
+    }
+
+    public Builder SetEndCustomer(EndCustomer value)
+    {
+      this.instance.EndCustomer = value;
+      return this;
+    }
+  }
 }

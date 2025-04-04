@@ -8,23 +8,52 @@ internal partial class ProtocolProvider : IAccountProtocol
 {
     internal IAccountProtocol AccountProtocol => this;
 
-    public async Task<AccountStatusInformResponse> SendAccountStatusInformAsync(AccountStatusInformRequest request)
+    /// <summary>
+    /// Sends an account status inform request.
+    /// </summary>
+    /// <param name="request">The account request to send.</param>
+    /// <returns>The response containing account status details.</returns>
+    /// <exception cref="SdkException">Thrown when operation has failed.</exception>
+    public async Task<AccountStatusInformResponse> SendAccountStatusInformAsync(
+       AccountStatusInformRequest request)
     {
-        return await ProcessRequestAsync<AccountStatusInformResponse>("account-status-inform", request).ConfigureAwait(false);
+        return await ProcessRequestAsync<AccountStatusInformResponse>(
+            "account-status-inform", request).ConfigureAwait(false);
     }
 
-    public async Task<FinancialLimitInformResponse> SendFinancialLimitInformAsync(FinancialLimitInformRequest request)
+    /// <summary>
+    /// Sends a account limit inform request.
+    /// </summary>
+    /// <param name="request">The account limit request to send.</param>
+    /// <returns>The response indicating the status of the account limit update.</returns>
+    public async Task<AccountLimitInformResponse> SendAccountLimitInformAsync(
+       AccountLimitInformRequest request)
     {
-        return await ProcessRequestAsync<FinancialLimitInformResponse>("financial-limit-inform", request).ConfigureAwait(false);
+        return await ProcessRequestAsync<AccountLimitInformResponse>(
+            "account-limit-inform", request).ConfigureAwait(false);
     }
 
-    public async Task<LimitReachedInformResponse> SendLimitReachedInformAsync(LimitReachedInformRequest request)
+    /// <summary>
+    /// Sends a limit reached inform request.
+    /// </summary>
+    /// <param name="request">The limit reached request to send.</param>
+    /// <returns>The response indicating the status of the limit reached notification.</returns>
+    public async Task<AccountLimitReachedInformResponse> SendAccountLimitReachedInformAsync(
+       AccountLimitReachedInformRequest request)
     {
-        return await ProcessRequestAsync<LimitReachedInformResponse>("limit-reached-inform", request).ConfigureAwait(false);
+        return await ProcessRequestAsync<AccountLimitReachedInformResponse>(
+            "account-limit-reached-inform", request).ConfigureAwait(false);
     }
 
-    public async Task<SessionLimitInformResponse> SendSessionLimitInformAsync(SessionLimitInformRequest request)
+    /// <summary>
+    /// Sends a account intervention inform request.
+    /// </summary>
+    /// <param name="request">The account intervention request to send.</param>
+    /// <returns>The response indicating the status of the intervention notification.</returns>
+    public async Task<AccountInterventionInformResponse> SendAccountInterventionInformAsync(
+       AccountInterventionInformRequest request)
     {
-        return await ProcessRequestAsync<SessionLimitInformResponse>("session-limit-inform", request).ConfigureAwait(false);
+        return await ProcessRequestAsync<AccountInterventionInformResponse>(
+            "account-intervention-inform", request).ConfigureAwait(false);
     }
 }

@@ -1,26 +1,49 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Entities.Settlement;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Request;
 
-/// <summary>
-/// Represents an external settlement request.
-/// </summary>
 public class ExtSettlementRequest : ContentRequestBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "ext-settlement";
 
-    /// <summary>
-    /// Gets or sets the details of the external settlement request.
-    /// </summary>
-    [JsonPropertyName("details")]
-    public ExtSettlementDetailsBase? Details { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "ext-settlement";
 
-    /// <summary>
-    /// Gets or sets the settlement ID of the external settlement request.
-    /// </summary>
-    [JsonPropertyName("settlementId")]
-    public string? SettlementId { get; set; }
+  [JsonPropertyName("details")]
+  public ExtSettlementDetailsBase? Details { get; set; }
+
+  [JsonPropertyName("settlementId")]
+  public String? SettlementId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly ExtSettlementRequest instance = new ExtSettlementRequest();
+
+    internal Builder()
+    {
+    }
+
+    public ExtSettlementRequest Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetDetails(ExtSettlementDetailsBase value)
+    {
+      this.instance.Details = value;
+      return this;
+    }
+
+    public Builder SetSettlementId(String value)
+    {
+      this.instance.SettlementId = value;
+      return this;
+    }
+  }
 }

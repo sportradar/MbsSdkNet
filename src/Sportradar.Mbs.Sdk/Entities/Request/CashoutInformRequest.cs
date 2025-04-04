@@ -1,27 +1,49 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Entities.Common;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Request;
 
-/// <summary>
-/// Represents a request to acknowledge a cashout inform.
-/// </summary>
 public class CashoutInformRequest : ContentRequestBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "cashout-inform";
 
-    /// <summary>
-    /// Gets or sets the cashout object.
-    /// </summary>
-    [JsonPropertyName("cashout")]
-    public CashoutRequest? Cashout { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "cashout-inform";
 
-    /// <summary>
-    /// Gets or sets the cashout inform validation object.
-    /// </summary>
-    [JsonPropertyName("validation")]
-    public CashoutInformValidation? Validation{ get; set; }
+  [JsonPropertyName("validation")]
+  public CashoutInformValidation? Validation { get; set; }
 
+  [JsonPropertyName("cashout")]
+  public CashoutRequest? Cashout { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly CashoutInformRequest instance = new CashoutInformRequest();
+
+    internal Builder()
+    {
+    }
+
+    public CashoutInformRequest Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetValidation(CashoutInformValidation value)
+    {
+      this.instance.Validation = value;
+      return this;
+    }
+
+    public Builder SetCashout(CashoutRequest value)
+    {
+      this.instance.Cashout = value;
+      return this;
+    }
+  }
 }

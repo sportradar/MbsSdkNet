@@ -1,26 +1,55 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Entities.Odds;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Selection;
 
-/// <summary>
-/// Represents a custom bet selection.
-/// </summary>
 public class UfCustomBetSelection : SelectionBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "uf-custom-bet";
 
-    /// <summary>
-    /// Gets or sets the array of (correlated) selections.
-    /// </summary>
-    [JsonPropertyName("selections")]
-    public UfSelection[]? Selections { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "uf-custom-bet";
 
-    /// <summary>
-    /// Gets or sets the odds for the custom bet.
-    /// </summary>
-    [JsonPropertyName("odds")]
-    public OddsBase? Odds { get; set; }
+  [JsonPropertyName("selections")]
+  public UfSelection[]? Selections { get; set; }
+
+  [JsonPropertyName("odds")]
+  public OddsBase? Odds { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly UfCustomBetSelection instance = new UfCustomBetSelection();
+
+    internal Builder()
+    {
+    }
+
+    public UfCustomBetSelection Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetSelections(params UfSelection[] value)
+    {
+      this.instance.Selections = value;
+      return this;
+    }
+
+    public Builder SetSelections<T>(IList<T> value) where T : UfSelection
+    {
+      UfSelection[] arr = value.ToArray();
+      return SetSelections(arr);
+    }
+
+    public Builder SetOdds(OddsBase value)
+    {
+      this.instance.Odds = value;
+      return this;
+    }
+  }
 }

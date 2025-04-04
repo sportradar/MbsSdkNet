@@ -21,6 +21,8 @@ internal class WebSocketConnection : IDisposable
 
     private long _connectedVersion = InitVersion;
     private long _reservedVersion = InitVersion;
+    private int _connectFailCount = 0;
+    private long _connectTs = TimeUtils.NowInUtcMillis();
 
     internal WebSocketConnection(
         Channel<WsInputMessage> inputBuffer, Channel<WsOutputMessage> outputBuffer,
@@ -61,15 +63,23 @@ internal class WebSocketConnection : IDisposable
 
         try
         {
+            int delay = CalculateDelay();
+            if (delay > 0)
+            {
+                await Task.Delay(delay);
+            }
             ClientWebSocket? webSocket = null;
 
             try
             {
                 webSocket = await CreateSocketAsync(cancellationToken).ConfigureAwait(false);
                 await webSocket.ConnectAsync(_config.WsServer, cancellationToken).ConfigureAwait(false);
+                Volatile.Write(ref _connectTs, TimeUtils.NowInUtcMillis());
+                Volatile.Write(ref _connectFailCount, 0);
             }
             catch
             {
+                Interlocked.Increment(ref this._connectFailCount);
                 ExcSuppress.Dispose(webSocket);
                 throw;
             }
@@ -101,6 +111,18 @@ internal class WebSocketConnection : IDisposable
             LogException(e);
             Reconnect(version);
         }
+    }
+
+    private int CalculateDelay()
+    {
+        int count = Math.Min(8, Volatile.Read(ref this._connectFailCount));
+        if (count == 0)
+        {
+            return 0;
+        }
+        long maxSleep = 125L * ((long)Math.Pow(2, count));
+        long diffTs = TimeUtils.NowInUtcMillis() - Volatile.Read(ref this._connectTs);
+        return (int)(maxSleep - diffTs);
     }
 
     private async void StartProcessing(ClientWebSocket webSocket, long version)

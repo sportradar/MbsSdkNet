@@ -4,34 +4,33 @@ using System.Text.Json.Serialization;
 namespace Sportradar.Mbs.Sdk.Entities.Balancechangesource;
 
 [JsonConverter(typeof(TicketBalanceChangeActionJsonConverter))]
-public enum TicketBalanceChangeAction
-{
-    PAYOUT,
-    PLACE
+public enum TicketBalanceChangeAction {
+  PLACE,
+  PAYOUT
 }
 
-public class TicketBalanceChangeActionJsonConverter : JsonConverter<TicketBalanceChangeAction>
-{
-    public override TicketBalanceChangeAction Read(ref Utf8JsonReader reader, Type typeToConvert,
-        JsonSerializerOptions options)
-    {
-        var jsonVal = reader.GetString();
-        return jsonVal switch
-        {
-            "payout" => TicketBalanceChangeAction.PAYOUT,
-            "place" => TicketBalanceChangeAction.PLACE,
-            _ => throw new JsonException("Unknown type of TicketBalanceChangeAction: " + jsonVal)
-        };
-    }
+public class TicketBalanceChangeActionJsonConverter : JsonConverter<TicketBalanceChangeAction> {
 
-    public override void Write(Utf8JsonWriter writer, TicketBalanceChangeAction value, JsonSerializerOptions options)
+  public override TicketBalanceChangeAction Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+  {
+    var jsonVal = reader.GetString();
+    return jsonVal switch
     {
-        var jsonVal = value switch
-        {
-            TicketBalanceChangeAction.PAYOUT => "payout",
-            TicketBalanceChangeAction.PLACE => "place",
-            _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
-        };
-        writer.WriteStringValue(jsonVal);
-    }
+      "place" => TicketBalanceChangeAction.PLACE,
+      "payout" => TicketBalanceChangeAction.PAYOUT,
+      _ => throw new JsonException("Unknown type of TicketBalanceChangeAction: " + jsonVal)
+    };
+  }
+
+  public override void Write(Utf8JsonWriter writer, TicketBalanceChangeAction value, JsonSerializerOptions options)
+  {
+    string jsonVal = value switch
+    {
+      TicketBalanceChangeAction.PLACE => "place",
+      TicketBalanceChangeAction.PAYOUT => "payout",
+      _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
+    };
+    writer.WriteStringValue(jsonVal);
+  }
+
 }

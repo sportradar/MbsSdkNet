@@ -2,24 +2,47 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Ref;
 
-/// <summary>
-/// Represents an alternative stake ticket reference.
-/// </summary>
 public class AltStakeTicketRef : TicketRefBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "alt-stake";
 
-    /// <summary>
-    /// Gets or sets the ticket ID.
-    /// </summary>
-    [JsonPropertyName("ticketId")]
-    public string? TicketId { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "alt-stake";
 
-    /// <summary>
-    /// Gets or sets the ticket signature.
-    /// </summary>
-    [JsonPropertyName("ticketSignature")]
-    public string? TicketSignature { get; set; }
+  [JsonPropertyName("ticketSignature")]
+  public String? TicketSignature { get; set; }
+
+  [JsonPropertyName("ticketId")]
+  public String? TicketId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly AltStakeTicketRef instance = new AltStakeTicketRef();
+
+    internal Builder()
+    {
+    }
+
+    public AltStakeTicketRef Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetTicketSignature(String value)
+    {
+      this.instance.TicketSignature = value;
+      return this;
+    }
+
+    public Builder SetTicketId(String value)
+    {
+      this.instance.TicketId = value;
+      return this;
+    }
+  }
 }

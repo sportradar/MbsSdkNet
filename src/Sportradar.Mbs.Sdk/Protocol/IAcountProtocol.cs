@@ -17,23 +17,23 @@ public interface IAccountProtocol
     Task<AccountStatusInformResponse> SendAccountStatusInformAsync(AccountStatusInformRequest request);
 
     /// <summary>
-    /// Sends a financial limit inform request.
+    /// Sends a account limit inform request.
     /// </summary>
-    /// <param name="request">The financial limit request to send.</param>
-    /// <returns>The response indicating the status of the financial limit update.</returns>
-    Task<FinancialLimitInformResponse> SendFinancialLimitInformAsync(FinancialLimitInformRequest request);
+    /// <param name="request">The account limit request to send.</param>
+    /// <returns>The response indicating the status of the account limit update.</returns>
+    Task<AccountLimitInformResponse> SendAccountLimitInformAsync(AccountLimitInformRequest request);
 
     /// <summary>
     /// Sends a limit reached inform request.
     /// </summary>
     /// <param name="request">The limit reached request to send.</param>
     /// <returns>The response indicating the status of the limit reached notification.</returns>
-    Task<LimitReachedInformResponse> SendLimitReachedInformAsync(LimitReachedInformRequest request);
+    Task<AccountLimitReachedInformResponse> SendAccountLimitReachedInformAsync(AccountLimitReachedInformRequest request);
 
     /// <summary>
-    /// Sends a session limit inform request.
+    /// Sends a account intervention inform request.
     /// </summary>
-    /// <param name="request">The session limit request to send.</param>
-    /// <returns>The response indicating the status of the session limit notification.</returns>
-    Task<SessionLimitInformResponse> SendSessionLimitInformAsync(SessionLimitInformRequest request);
+    /// <param name="request">The account intervention request to send.</param>
+    /// <returns>The response indicating the status of the intervention notification.</returns>
+    Task<AccountInterventionInformResponse> SendAccountInterventionInformAsync(AccountInterventionInformRequest request);
 }

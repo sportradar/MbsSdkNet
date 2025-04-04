@@ -2,32 +2,61 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Common;
 
-/// <summary>
-/// Represents the validation result of a bet.
-/// </summary>
 public class BetValidation
 {
-    /// <summary>
-    /// Gets or sets the validation code.
-    /// </summary>
-    [JsonPropertyName("code")]
-    public int Code { get; set; }
 
-    /// <summary>
-    /// Gets or sets the bet ID.
-    /// </summary>
-    [JsonPropertyName("betId")]
-    public string? BetId { get; set; }
+  [JsonPropertyName("code")]
+  public int Code { get; set; }
 
-    /// <summary>
-    /// Gets or sets the validation message.
-    /// </summary>
-    [JsonPropertyName("message")]
-    public string? Message { get; set; }
-    
-    /// <summary>
-    /// Gets or sets the rejected flag.
-    /// </summary>
-    [JsonPropertyName("rejected")]
-    public bool? Rejected { get; set; }
+  [JsonPropertyName("rejected")]
+  public bool Rejected { get; set; }
+
+  [JsonPropertyName("betId")]
+  public String? BetId { get; set; }
+
+  [JsonPropertyName("message")]
+  public String? Message { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly BetValidation instance = new BetValidation();
+
+    internal Builder()
+    {
+    }
+
+    public BetValidation Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetCode(int value)
+    {
+      this.instance.Code = value;
+      return this;
+    }
+
+    public Builder SetRejected(bool value)
+    {
+      this.instance.Rejected = value;
+      return this;
+    }
+
+    public Builder SetBetId(String value)
+    {
+      this.instance.BetId = value;
+      return this;
+    }
+
+    public Builder SetMessage(String value)
+    {
+      this.instance.Message = value;
+      return this;
+    }
+  }
 }

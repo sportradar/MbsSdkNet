@@ -1,29 +1,55 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Internal.Utils;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Common;
 
-/// <summary>
-/// Represents an exchange rate between two currencies (source currency amount * rate = target currency amount).
-/// </summary>
 public class ExchangeRate
 {
-    /// <summary>
-    /// Gets or sets the currency code of the target currency.
-    /// </summary>
-    [JsonPropertyName("toCurrency")]
-    public string? ToCurrency { get; set; }
 
-    /// <summary>
-    /// Gets or sets the exchange rate value.
-    /// </summary>
-    [JsonConverter(typeof(DecimalJsonConverter))]
-    [JsonPropertyName("rate")]
-    public decimal? Rate { get; set; }
+  [JsonPropertyName("toCurrency")]
+  public String? ToCurrency { get; set; }
 
-    /// <summary>
-    /// Gets or sets the currency code of the source currency.
-    /// </summary>
-    [JsonPropertyName("fromCurrency")]
-    public string? FromCurrency { get; set; }
+  [JsonConverter(typeof(DecimalJsonConverter))]
+  [JsonPropertyName("rate")]
+  public decimal? Rate { get; set; }
+
+  [JsonPropertyName("fromCurrency")]
+  public String? FromCurrency { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly ExchangeRate instance = new ExchangeRate();
+
+    internal Builder()
+    {
+    }
+
+    public ExchangeRate Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetToCurrency(String value)
+    {
+      this.instance.ToCurrency = value;
+      return this;
+    }
+
+    public Builder SetRate(decimal value)
+    {
+      this.instance.Rate = value;
+      return this;
+    }
+
+    public Builder SetFromCurrency(String value)
+    {
+      this.instance.FromCurrency = value;
+      return this;
+    }
+  }
 }

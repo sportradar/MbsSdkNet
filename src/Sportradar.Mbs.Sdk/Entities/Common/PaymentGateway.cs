@@ -2,38 +2,70 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Common;
 
-/// <summary>
-/// Represents a payment gateway entity.
-/// </summary>
 public class PaymentGateway
 {
-    /// <summary>
-    /// Gets or sets the payment method.
-    /// </summary>
-    [JsonPropertyName("method")]
-    public PaymentMethod? Method { get; set; }
 
-    /// <summary>
-    /// Gets or sets the payment provider.
-    /// </summary>
-    [JsonPropertyName("provider")]
-    public string? Provider { get; set; }
+  [JsonPropertyName("method")]
+  public PaymentMethod? Method { get; set; }
 
-    /// <summary>
-    /// Gets or sets the UTC millis timestamp when the payment was executed.
-    /// </summary>
-    [JsonPropertyName("executedAtUtc")]
-    public long ExecutedAtUtc { get; set; }
+  [JsonPropertyName("provider")]
+  public String? Provider { get; set; }
 
-    /// <summary>
-    /// Gets or sets the UTC millis timestamp when the payment was initiated.
-    /// </summary>
-    [JsonPropertyName("initiatedAtUtc")]
-    public long InitiatedAtUtc { get; set; }
+  [JsonPropertyName("executedAtUtc")]
+  public long ExecutedAtUtc { get; set; }
 
-    /// <summary>
-    /// Gets or sets the reference ID of the payment (ID in the source system).
-    /// </summary>
-    [JsonPropertyName("referenceId")]
-    public string? ReferenceId { get; set; }
+  [JsonPropertyName("initiatedAtUtc")]
+  public long? InitiatedAtUtc { get; set; }
+
+  [JsonPropertyName("referenceId")]
+  public String? ReferenceId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly PaymentGateway instance = new PaymentGateway();
+
+    internal Builder()
+    {
+    }
+
+    public PaymentGateway Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetMethod(PaymentMethod value)
+    {
+      this.instance.Method = value;
+      return this;
+    }
+
+    public Builder SetProvider(String value)
+    {
+      this.instance.Provider = value;
+      return this;
+    }
+
+    public Builder SetExecutedAtUtc(long value)
+    {
+      this.instance.ExecutedAtUtc = value;
+      return this;
+    }
+
+    public Builder SetInitiatedAtUtc(long value)
+    {
+      this.instance.InitiatedAtUtc = value;
+      return this;
+    }
+
+    public Builder SetReferenceId(String value)
+    {
+      this.instance.ReferenceId = value;
+      return this;
+    }
+  }
 }

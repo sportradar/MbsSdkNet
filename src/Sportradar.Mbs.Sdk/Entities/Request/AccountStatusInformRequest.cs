@@ -3,57 +3,92 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Request;
 
-/// <summary>
-/// Represents a request to inform about an account status change.
-/// </summary>
 public class AccountStatusInformRequest : ContentRequestBase
 {
-    /// <summary>
-    /// JSON property that defines the type of request.
-    /// </summary>
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "account-status-inform";
 
-    /// <summary>
-    /// Duration of the account status change.
-    /// </summary>
-    [JsonPropertyName("duration")]
-    public StatusDuration? Duration { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "account-status-inform";
 
-    /// <summary>
-    /// Reason for the account status change.
-    /// </summary>
-    [JsonPropertyName("reason")]
-    public string? Reason { get; set; }
+  [JsonPropertyName("duration")]
+  public AccountStatusChangeDuration? Duration { get; set; }
 
-    /// <summary>
-    /// Entity that initiated the request.
-    /// </summary>
-    [JsonPropertyName("initiator")]
-    public Initiator? Initiator { get; set; }
+  [JsonPropertyName("reason")]
+  public String? Reason { get; set; }
 
-    /// <summary>
-    /// End customer affected by the status change.
-    /// </summary>
-    [JsonPropertyName("endCustomer")]
-    public EndCustomer? EndCustomer { get; set; }
+  [JsonPropertyName("initiator")]
+  public AccountStatusChangeInitiator? Initiator { get; set; }
 
-    /// <summary>
-    /// Start time of the status period in UTC (epoch time).
-    /// </summary>
-    [JsonPropertyName("periodStartUtc")]
-    public long PeriodStartUtc { get; set; }
+  [JsonPropertyName("endCustomer")]
+  public EndCustomer? EndCustomer { get; set; }
 
-    /// <summary>
-    /// Status value associated with the request.
-    /// </summary>
-    [JsonPropertyName("status")]
-    public StatusValue? Status { get; set; }
+  [JsonPropertyName("periodStartUtc")]
+  public long PeriodStartUtc { get; set; }
 
-    /// <summary>
-    /// End time of the status period in UTC (epoch time).
-    /// </summary>
-    [JsonPropertyName("periodEndUtc")]
-    public long PeriodEndUtc { get; set; }
+  [JsonPropertyName("status")]
+  public AccountStatus? Status { get; set; }
+
+  [JsonPropertyName("periodEndUtc")]
+  public long? PeriodEndUtc { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly AccountStatusInformRequest instance = new AccountStatusInformRequest();
+
+    internal Builder()
+    {
+    }
+
+    public AccountStatusInformRequest Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetDuration(AccountStatusChangeDuration value)
+    {
+      this.instance.Duration = value;
+      return this;
+    }
+
+    public Builder SetReason(String value)
+    {
+      this.instance.Reason = value;
+      return this;
+    }
+
+    public Builder SetInitiator(AccountStatusChangeInitiator value)
+    {
+      this.instance.Initiator = value;
+      return this;
+    }
+
+    public Builder SetEndCustomer(EndCustomer value)
+    {
+      this.instance.EndCustomer = value;
+      return this;
+    }
+
+    public Builder SetPeriodStartUtc(long value)
+    {
+      this.instance.PeriodStartUtc = value;
+      return this;
+    }
+
+    public Builder SetStatus(AccountStatus value)
+    {
+      this.instance.Status = value;
+      return this;
+    }
+
+    public Builder SetPeriodEndUtc(long value)
+    {
+      this.instance.PeriodEndUtc = value;
+      return this;
+    }
+  }
 }

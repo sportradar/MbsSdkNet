@@ -2,18 +2,38 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Balancechangesource;
 
-/// <summary>
-/// Represents a balance change source for deposit transactions.
-/// </summary>
 public class DepositBalanceChangeSource : BalanceChangeSourceBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "deposit";
 
-    /// <summary>
-    /// Gets or sets the ID of the deposit producing balance change.
-    /// </summary>
-    [JsonPropertyName("id")]
-    public string? Id { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "deposit";
+
+  [JsonPropertyName("id")]
+  public String? Id { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly DepositBalanceChangeSource instance = new DepositBalanceChangeSource();
+
+    internal Builder()
+    {
+    }
+
+    public DepositBalanceChangeSource Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetId(String value)
+    {
+      this.instance.Id = value;
+      return this;
+    }
+  }
 }

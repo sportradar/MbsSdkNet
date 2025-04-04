@@ -4,34 +4,33 @@ using System.Text.Json.Serialization;
 namespace Sportradar.Mbs.Sdk.Entities.Common;
 
 [JsonConverter(typeof(BalanceChangeStatusJsonConverter))]
-public enum BalanceChangeStatus
-{
-    VALID,
-    INVALID
+public enum BalanceChangeStatus {
+  INVALID,
+  VALID
 }
 
-public class BalanceChangeStatusJsonConverter : JsonConverter<BalanceChangeStatus>
-{
-    public override BalanceChangeStatus Read(ref Utf8JsonReader reader, Type typeToConvert,
-        JsonSerializerOptions options)
-    {
-        var jsonVal = reader.GetString();
-        return jsonVal switch
-        {
-            "valid" => BalanceChangeStatus.VALID,
-            "invalid" => BalanceChangeStatus.INVALID,
-            _ => throw new JsonException("Unknown type of BalanceChangeStatus: " + jsonVal)
-        };
-    }
+public class BalanceChangeStatusJsonConverter : JsonConverter<BalanceChangeStatus> {
 
-    public override void Write(Utf8JsonWriter writer, BalanceChangeStatus value, JsonSerializerOptions options)
+  public override BalanceChangeStatus Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+  {
+    var jsonVal = reader.GetString();
+    return jsonVal switch
     {
-        var jsonVal = value switch
-        {
-            BalanceChangeStatus.VALID => "valid",
-            BalanceChangeStatus.INVALID => "invalid",
-            _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
-        };
-        writer.WriteStringValue(jsonVal);
-    }
+      "invalid" => BalanceChangeStatus.INVALID,
+      "valid" => BalanceChangeStatus.VALID,
+      _ => throw new JsonException("Unknown type of BalanceChangeStatus: " + jsonVal)
+    };
+  }
+
+  public override void Write(Utf8JsonWriter writer, BalanceChangeStatus value, JsonSerializerOptions options)
+  {
+    string jsonVal = value switch
+    {
+      BalanceChangeStatus.INVALID => "invalid",
+      BalanceChangeStatus.VALID => "valid",
+      _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
+    };
+    writer.WriteStringValue(jsonVal);
+  }
+
 }

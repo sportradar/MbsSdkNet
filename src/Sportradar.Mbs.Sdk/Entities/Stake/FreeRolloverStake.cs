@@ -1,39 +1,68 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Internal.Utils;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Stake;
 
-/// <summary>
-/// Represents a stake with free rollover functionality.
-/// </summary>
 public class FreeRolloverStake : StakeBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "free-rollover";
 
-    /// <summary>
-    /// Gets or sets the mode of the stake.
-    /// </summary>
-    [JsonPropertyName("mode")]
-    public StakeMode? Mode { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "free-rollover";
 
-    /// <summary>
-    /// Gets or sets the trace ID of the stake.
-    /// </summary>
-    [JsonPropertyName("traceId")]
-    public string? TraceId { get; set; }
+  [JsonPropertyName("mode")]
+  public StakeMode? Mode { get; set; }
 
-    /// <summary>
-    /// Gets or sets the amount of the stake.
-    /// </summary>
-    [JsonConverter(typeof(DecimalJsonConverter))]
-    [JsonPropertyName("amount")]
-    public decimal? Amount { get; set; }
+  [JsonPropertyName("traceId")]
+  public String? TraceId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the currency of the stake.
-    /// </summary>
-    [JsonPropertyName("currency")]
-    public string? Currency { get; set; }
+  [JsonConverter(typeof(DecimalJsonConverter))]
+  [JsonPropertyName("amount")]
+  public decimal? Amount { get; set; }
+
+  [JsonPropertyName("currency")]
+  public String? Currency { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly FreeRolloverStake instance = new FreeRolloverStake();
+
+    internal Builder()
+    {
+    }
+
+    public FreeRolloverStake Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetMode(StakeMode value)
+    {
+      this.instance.Mode = value;
+      return this;
+    }
+
+    public Builder SetTraceId(String value)
+    {
+      this.instance.TraceId = value;
+      return this;
+    }
+
+    public Builder SetAmount(decimal value)
+    {
+      this.instance.Amount = value;
+      return this;
+    }
+
+    public Builder SetCurrency(String value)
+    {
+      this.instance.Currency = value;
+      return this;
+    }
+  }
 }

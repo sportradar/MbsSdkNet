@@ -2,33 +2,56 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Response;
 
-/// <summary>
-/// Represents a response to an account status inform request.
-/// </summary>
 public class AccountStatusInformResponse : ContentResponseBase
 {
-    /// <summary>
-    /// JSON property that defines the type of response.
-    /// </summary>
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "account-status-inform-reply";
 
-    /// <summary>
-    /// The response code indicating the status of the request.
-    /// </summary>
-    [JsonPropertyName("code")]
-    public int Code { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "account-status-inform-reply";
 
-    /// <summary>
-    /// The digital signature for verification.
-    /// </summary>
-    [JsonPropertyName("signature")]
-    public string? Signature { get; set; }
+  [JsonPropertyName("code")]
+  public int Code { get; set; }
 
-    /// <summary>
-    /// An optional message providing additional details about the response.
-    /// </summary>
-    [JsonPropertyName("message")]
-    public string? Message { get; set; }
+  [JsonPropertyName("signature")]
+  public String? Signature { get; set; }
+
+  [JsonPropertyName("message")]
+  public String? Message { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly AccountStatusInformResponse instance = new AccountStatusInformResponse();
+
+    internal Builder()
+    {
+    }
+
+    public AccountStatusInformResponse Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetCode(int value)
+    {
+      this.instance.Code = value;
+      return this;
+    }
+
+    public Builder SetSignature(String value)
+    {
+      this.instance.Signature = value;
+      return this;
+    }
+
+    public Builder SetMessage(String value)
+    {
+      this.instance.Message = value;
+      return this;
+    }
+  }
 }

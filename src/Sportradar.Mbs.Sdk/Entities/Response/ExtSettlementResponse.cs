@@ -1,50 +1,85 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Entities.Common;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Response;
 
-/// <summary>
-/// Represents a response for an external settlement.
-/// </summary>
 public class ExtSettlementResponse : ContentResponseBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "ext-settlement-reply";
 
-    /// <summary>
-    /// Gets or sets the code associated with the settlement response.
-    /// </summary>
-    [JsonPropertyName("code")]
-    public int Code { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "ext-settlement-reply";
 
-    /// <summary>
-    /// Gets or sets the signature of the settlement response.
-    /// </summary>
-    [JsonPropertyName("signature")]
-    public string? Signature { get; set; }
+  [JsonPropertyName("code")]
+  public int Code { get; set; }
 
-    /// <summary>
-    /// Gets or sets the settlement ID associated with the response.
-    /// </summary>
-    [JsonPropertyName("settlementId")]
-    public string? SettlementId { get; set; }
+  [JsonPropertyName("signature")]
+  public String? Signature { get; set; }
 
-    /// <summary>
-    /// Gets or sets the message associated with the settlement response.
-    /// </summary>
-    [JsonPropertyName("message")]
-    public string? Message { get; set; }
+  [JsonPropertyName("settlementId")]
+  public String? SettlementId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the ticket ID associated with the settlement response.
-    /// </summary>
-    [JsonPropertyName("ticketId")]
-    public string? TicketId { get; set; }
+  [JsonPropertyName("message")]
+  public String? Message { get; set; }
 
-    /// <summary>
-    /// Gets or sets the acceptance status of the settlement response.
-    /// </summary>
-    [JsonPropertyName("status")]
-    public AcceptanceStatus? Status { get; set; }
+  [JsonPropertyName("ticketId")]
+  public String? TicketId { get; set; }
+
+  [JsonPropertyName("status")]
+  public AcceptanceStatus? Status { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly ExtSettlementResponse instance = new ExtSettlementResponse();
+
+    internal Builder()
+    {
+    }
+
+    public ExtSettlementResponse Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetCode(int value)
+    {
+      this.instance.Code = value;
+      return this;
+    }
+
+    public Builder SetSignature(String value)
+    {
+      this.instance.Signature = value;
+      return this;
+    }
+
+    public Builder SetSettlementId(String value)
+    {
+      this.instance.SettlementId = value;
+      return this;
+    }
+
+    public Builder SetMessage(String value)
+    {
+      this.instance.Message = value;
+      return this;
+    }
+
+    public Builder SetTicketId(String value)
+    {
+      this.instance.TicketId = value;
+      return this;
+    }
+
+    public Builder SetStatus(AcceptanceStatus value)
+    {
+      this.instance.Status = value;
+      return this;
+    }
+  }
 }

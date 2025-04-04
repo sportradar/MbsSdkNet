@@ -1,38 +1,73 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Entities.Payout;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Settlement;
 
-/// <summary>
-/// Represents the external settlement details for a bet.
-/// </summary>
 public class BetExtSettlementDetails : ExtSettlementDetailsBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "bet";
 
-    /// <summary>
-    /// Gets or sets the ID of the bet.
-    /// </summary>
-    [JsonPropertyName("betId")]
-    public string? BetId { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "bet";
 
-    /// <summary>
-    /// Gets or sets the payout details for the bet.
-    /// </summary>
-    [JsonPropertyName("payout")]
-    public PayoutBase[]? Payout { get; set; }
+  [JsonPropertyName("betId")]
+  public String? BetId { get; set; }
 
-    /// <summary>
-    /// Gets or sets the signature of the ticket associated with the bet.
-    /// </summary>
-    [JsonPropertyName("ticketSignature")]
-    public string? TicketSignature { get; set; }
+  [JsonPropertyName("payout")]
+  public PayoutBase[]? Payout { get; set; }
 
-    /// <summary>
-    /// Gets or sets the ID of the ticket associated with the bet.
-    /// </summary>
-    [JsonPropertyName("ticketId")]
-    public string? TicketId { get; set; }
+  [JsonPropertyName("ticketSignature")]
+  public String? TicketSignature { get; set; }
+
+  [JsonPropertyName("ticketId")]
+  public String? TicketId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly BetExtSettlementDetails instance = new BetExtSettlementDetails();
+
+    internal Builder()
+    {
+    }
+
+    public BetExtSettlementDetails Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetBetId(String value)
+    {
+      this.instance.BetId = value;
+      return this;
+    }
+
+    public Builder SetPayout(params PayoutBase[] value)
+    {
+      this.instance.Payout = value;
+      return this;
+    }
+
+    public Builder SetPayout<T>(IList<T> value) where T : PayoutBase
+    {
+      PayoutBase[] arr = value.ToArray();
+      return SetPayout(arr);
+    }
+
+    public Builder SetTicketSignature(String value)
+    {
+      this.instance.TicketSignature = value;
+      return this;
+    }
+
+    public Builder SetTicketId(String value)
+    {
+      this.instance.TicketId = value;
+      return this;
+    }
+  }
 }

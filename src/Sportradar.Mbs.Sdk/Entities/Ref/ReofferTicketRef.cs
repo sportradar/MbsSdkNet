@@ -2,24 +2,47 @@ using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Ref;
 
-/// <summary>
-/// Represents a reoffer ticket reference.
-/// </summary>
 public class ReofferTicketRef : TicketRefBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type => "reoffer";
 
-    /// <summary>
-    /// Gets or sets the ticket ID.
-    /// </summary>
-    [JsonPropertyName("ticketId")]
-    public string? TicketId { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "reoffer";
 
-    /// <summary>
-    /// Gets or sets the ticket signature.
-    /// </summary>
-    [JsonPropertyName("ticketSignature")]
-    public string? TicketSignature { get; set; }
+  [JsonPropertyName("ticketSignature")]
+  public String? TicketSignature { get; set; }
+
+  [JsonPropertyName("ticketId")]
+  public String? TicketId { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly ReofferTicketRef instance = new ReofferTicketRef();
+
+    internal Builder()
+    {
+    }
+
+    public ReofferTicketRef Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetTicketSignature(String value)
+    {
+      this.instance.TicketSignature = value;
+      return this;
+    }
+
+    public Builder SetTicketId(String value)
+    {
+      this.instance.TicketId = value;
+      return this;
+    }
+  }
 }

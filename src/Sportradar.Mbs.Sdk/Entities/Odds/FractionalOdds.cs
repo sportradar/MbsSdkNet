@@ -1,28 +1,51 @@
-using System.Text.Json.Serialization;
 using Sportradar.Mbs.Sdk.Internal.Utils;
+using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Odds;
 
-/// <summary>
-/// Represents fractional odds.
-/// </summary>
 public class FractionalOdds : OddsBase
 {
-    [JsonInclude]
-    [JsonPropertyName("type")]
-    private string Type  => "fractional";
 
-    /// <summary>
-    /// Gets or sets the value of the numerator (top, first part) of the fractional odds.
-    /// </summary>
-    [JsonConverter(typeof(LongJsonConverter))]
-    [JsonPropertyName("numerator")]
-    public long? Numerator { get; set; }
+  [JsonInclude]
+  [JsonPropertyName("type")]
+  private string Type => "fractional";
 
-    /// <summary>
-    /// Gets or sets the value of the denominator (bottom, last part) of the fractional odds.
-    /// </summary>
-    [JsonConverter(typeof(LongJsonConverter))]
-    [JsonPropertyName("denominator")]
-    public long? Denominator { get; set; }
+  [JsonConverter(typeof(DecimalJsonConverter))]
+  [JsonPropertyName("numerator")]
+  public long? Numerator { get; set; }
+
+  [JsonConverter(typeof(LongJsonConverter))]
+  [JsonPropertyName("denominator")]
+  public long? Denominator { get; set; }
+
+  public static Builder NewBuilder()
+  {
+    return new Builder();
+  }
+
+  public class Builder
+  {
+    private readonly FractionalOdds instance = new FractionalOdds();
+
+    internal Builder()
+    {
+    }
+
+    public FractionalOdds Build()
+    {
+      return this.instance;
+    }
+
+    public Builder SetNumerator(long value)
+    {
+      this.instance.Numerator = value;
+      return this;
+    }
+
+    public Builder SetDenominator(long value)
+    {
+      this.instance.Denominator = value;
+      return this;
+    }
+  }
 }
