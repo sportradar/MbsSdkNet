@@ -53,7 +53,7 @@ internal class TokenProvider : IDisposable
             {
                 Exception? possibleExc = null;
                 string? token = null;
-                for (var i = 0; i < 10 && token == null; i++)
+                for (var i = 0; i < 3 && token == null; i++)
                     try
                     {
                         token = GetToken() ?? await FetchTokenAsync(cancellationToken).ConfigureAwait(false);
@@ -149,7 +149,7 @@ internal class TokenProvider : IDisposable
 
         var msg = new StringBuilder();
         msg.Append("Auth error");
-        if (!string.IsNullOrEmpty(authResponse.Error)) 
+        if (!string.IsNullOrEmpty(authResponse.Error))
         {
             msg.Append(": ").Append(authResponse.Error.NotNull());
         }
@@ -157,7 +157,7 @@ internal class TokenProvider : IDisposable
         {
             msg.Append(": ").Append(authResponse.ErrorDescription.NotNull());
         }
-        
+
         throw new AuthTokenFailureException(msg.ToString());
     }
 

@@ -39,6 +39,11 @@ public class MbsSdk : IDisposable
     public IAccountProtocol AccountProtocol => _protocolProvider.AccountProtocol;
 
     /// <summary>
+    /// Gets the balance protocol.
+    /// </summary>
+    public IBalanceProtocol BalanceProtocol => _protocolProvider.BalanceProtocol;
+
+    /// <summary>
     /// Disposes the SDK and releases all resources.
     /// </summary>
     public void Dispose()
