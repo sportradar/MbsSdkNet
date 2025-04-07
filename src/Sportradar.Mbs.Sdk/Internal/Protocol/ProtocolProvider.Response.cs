@@ -50,6 +50,7 @@ internal partial class ProtocolProvider
                 awaiter.CompleteWithException(e);
             }
 
+        message.SuppressSend();
         return awaiter.GetResult<T>();
     }
 
@@ -132,47 +133,48 @@ internal partial class ProtocolProvider
             _contentResponseType = type;
         }
 
-        private TaskCompletionSource<ContentResponseBase> Source
+        public Task<ContentResponseBase> Task
         {
             get
             {
-                lock (_lock) return _source.NotNull(nameof(_source));
+                lock (_lock) return _source.NotNull(nameof(_source)).Task;
             }
         }
 
-        public Task Task => Source.Task;
-
         public void Timeout(int tryCount)
         {
-            TaskCompletionSource<ContentResponseBase> source;
             lock (_lock)
             {
                 if (_retryCount != tryCount) return;
 
-                source = _source.NotNull(nameof(_source));
+                _source.NotNull(nameof(_source)).TrySetException(new ProtocolTimeoutException());
             }
-
-            CompleteSource(source, new ProtocolTimeoutException());
         }
 
         public void CompleteWithException(SdkException sdkException)
         {
-            CompleteSource(Source, sdkException);
+            lock (_lock)
+            {
+                _source.NotNull(nameof(_source)).TrySetException(sdkException);
+            }
         }
 
         public void CompleteSuccess(ContentResponseBase contentResponseBase)
         {
-            CompleteSource(Source, contentResponseBase);
+            lock (_lock)
+            {
+                _source.NotNull(nameof(_source)).TrySetResult(contentResponseBase);
+            }
         }
 
         public bool CheckResponseType(ContentResponseBase contentResponseBase)
         {
-			return _contentResponseType.IsInstanceOfType(contentResponseBase);
+            return _contentResponseType.IsInstanceOfType(contentResponseBase);
         }
 
         public T GetResult<T>() where T : ContentResponseBase
         {
-            return (T)Source.Task.Result;
+            return (T)Task.Result;
         }
 
         public bool PrepareNewTry(int maxTryCount, out int tryCount)
@@ -181,33 +183,14 @@ internal partial class ProtocolProvider
             {
                 tryCount = _retryCount + 1;
                 if (tryCount > maxTryCount) return false;
-
                 _retryCount = tryCount;
-                _source = ExchangeSource(_source);
+
+                var task = _source?.Task;
+                if (task != null && task.IsCompleted && !task.IsFaulted) return false;
+
+                _source = new();
                 return true;
             }
-        }
-
-        private TaskCompletionSource<ContentResponseBase> ExchangeSource(
-            TaskCompletionSource<ContentResponseBase>? oldSource)
-        {
-            TaskCompletionSource<ContentResponseBase> newSource = new();
-            if (oldSource?.Task.IsCompleted == true)
-                ExcSuppress.Invoke(() => CompleteSource(newSource, oldSource.Task.Result));
-
-            return newSource;
-        }
-
-        private static void CompleteSource(
-            TaskCompletionSource<ContentResponseBase> source, SdkException sdkException)
-        {
-            source.TrySetException(sdkException);
-        }
-
-        private static void CompleteSource(
-            TaskCompletionSource<ContentResponseBase> source, ContentResponseBase response)
-        {
-            source.TrySetResult(response);
         }
     }
 }

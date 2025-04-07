@@ -184,7 +184,7 @@ internal class WebSocketConnection : IDisposable
 
                 var msg = await RequestMessageReadAsync().ConfigureAwait(false);
                 if (msg == null) continue;
-                if (msg is not SendWsInputMessage sendMsg)
+                if (msg is not SendWsInputMessage sendMsg || sendMsg.IsSuppressed)
                 {
                     _outputBuffer.Writer.TryWrite(new NotProcessedWsOutputMessage(msg));
                     continue;
