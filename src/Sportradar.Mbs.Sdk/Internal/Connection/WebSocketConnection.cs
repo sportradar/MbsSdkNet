@@ -14,13 +14,12 @@ internal class WebSocketConnection : IDisposable
     private const long InitVersion = 0;
 
     private readonly IWebSocketConnectionConfig _config;
-
     private readonly Channel<WsInputMessage> _inputBuffer;
     private readonly Channel<WsOutputMessage> _outputBuffer;
     private readonly TokenProvider _tokenProvider;
+    private readonly SemaphoreSlim _semaphore;
 
     private long _connectedVersion = InitVersion;
-    private long _reservedVersion = InitVersion;
     private int _connectFailCount = 0;
     private long _connectAttemptTs = TimeUtils.NowInUtcMillis();
 
@@ -32,19 +31,20 @@ internal class WebSocketConnection : IDisposable
         _inputBuffer = inputBuffer;
         _outputBuffer = outputBuffer;
         _config = config;
+        _semaphore = new SemaphoreSlim(1);
     }
 
     public void Dispose()
     {
-        var version = Interlocked.Increment(ref _reservedVersion);
-        Volatile.Write(ref _connectedVersion, version);
+        Interlocked.Increment(ref _connectedVersion);
+        ExcSuppress.Dispose(_semaphore);
     }
 
     internal async Task ConnectAsync(CancellationToken cancellationToken)
     {
         try
         {
-            await VersionedConnectAsync(InitVersion, cancellationToken).ConfigureAwait(false);
+            await VersionedConnectAsync(InitVersion).ConfigureAwait(false);
         }
         catch (SdkException)
         {
@@ -56,41 +56,56 @@ internal class WebSocketConnection : IDisposable
         }
     }
 
-    private async Task VersionedConnectAsync(long version, CancellationToken cancellationToken)
+    private async Task VersionedConnectAsync(long version)
     {
-        var nextVersion = version + 1;
-        if (Interlocked.CompareExchange(ref _reservedVersion, nextVersion, version) != version) return;
-
         try
         {
-            int delay = CalculateDelay();
-            if (delay > 0)
+            if (await _semaphore.WaitAsync(_config.WsReconnectTimeout).ConfigureAwait(false))
             {
-                await Task.Delay(delay);
-            }
-            Volatile.Write(ref _connectAttemptTs, TimeUtils.NowInUtcMillis());
+                var nextVersion = version + 1;
+                ClientWebSocket? webSocket = null;
+                try
+                {
+                    if (_connectedVersion != version) return;
 
-            ClientWebSocket? webSocket = null;
-            try
-            {
-                webSocket = await CreateSocketAsync(cancellationToken).ConfigureAwait(false);
-                await webSocket.ConnectAsync(_config.WsServer, cancellationToken).ConfigureAwait(false);
-                Volatile.Write(ref _connectFailCount, 0);
-            }
-            catch
-            {
-                Interlocked.Increment(ref this._connectFailCount);
-                ExcSuppress.Dispose(webSocket);
-                throw;
-            }
+                    if (_connectFailCount > 0)
+                    {
+                        long maxSleep = 125L * (long)Math.Pow(2, _connectFailCount);
+                        long diffTs = TimeUtils.NowInUtcMillis() - _connectAttemptTs;
+                        int delay = (int)(maxSleep - diffTs);
+                        if (delay > 0)
+                        {
+                            await Task.Delay(delay);
+                        }
+                    }
+                    _connectAttemptTs = TimeUtils.NowInUtcMillis();
 
-            Volatile.Write(ref _connectedVersion, nextVersion);
-            StartProcessing(webSocket, nextVersion);
+                    try
+                    {
+                        using var source = new CancellationTokenSource(_config.WsReconnectTimeout);
+                        var cancellationToken = source.Token;
+                        webSocket = await CreateSocketAsync(cancellationToken).ConfigureAwait(false);
+                        await webSocket.ConnectAsync(_config.WsServer, cancellationToken).ConfigureAwait(false);
+                        _connectFailCount = 0;
+                    }
+                    catch
+                    {
+                        _connectFailCount = Math.Min(8, _connectFailCount + 1);
+                        ExcSuppress.Dispose(webSocket);
+                        throw;
+                    }
+                    Volatile.Write(ref _connectedVersion, nextVersion);
+                }
+                finally
+                {
+                    _semaphore.Release();
+                }
+                StartProcessing(webSocket, nextVersion);
+            }
         }
-        catch
+        catch (ObjectDisposedException)
         {
-            Interlocked.CompareExchange(ref _reservedVersion, version, nextVersion);
-            throw;
+
         }
     }
 
@@ -103,26 +118,13 @@ internal class WebSocketConnection : IDisposable
     {
         try
         {
-            using var source = new CancellationTokenSource(_config.WsReconnectTimeout);
-            await VersionedConnectAsync(version, source.Token).ConfigureAwait(false);
+            await VersionedConnectAsync(version).ConfigureAwait(false);
         }
         catch (Exception e)
         {
             LogException(e);
             Reconnect(version);
         }
-    }
-
-    private int CalculateDelay()
-    {
-        int count = Math.Min(8, Volatile.Read(ref this._connectFailCount));
-        if (count == 0)
-        {
-            return 0;
-        }
-        long maxSleep = 125L * ((long)Math.Pow(2, count));
-        long diffTs = TimeUtils.NowInUtcMillis() - Volatile.Read(ref this._connectAttemptTs);
-        return (int)(maxSleep - diffTs);
     }
 
     private async void StartProcessing(ClientWebSocket webSocket, long version)
