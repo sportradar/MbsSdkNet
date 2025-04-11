@@ -60,10 +60,9 @@ internal class WebSocketConnection : IDisposable
     {
         try
         {
+            ClientWebSocket? webSocket = null;
             if (await _semaphore.WaitAsync(_config.WsReconnectTimeout).ConfigureAwait(false))
             {
-                var nextVersion = version + 1;
-                ClientWebSocket? webSocket = null;
                 try
                 {
                     if (_connectedVersion != version) return;
@@ -80,27 +79,28 @@ internal class WebSocketConnection : IDisposable
                     }
                     _connectAttemptTs = TimeUtils.NowInUtcMillis();
 
-                    try
-                    {
-                        using var source = new CancellationTokenSource(_config.WsReconnectTimeout);
-                        var cancellationToken = source.Token;
-                        webSocket = await CreateSocketAsync(cancellationToken).ConfigureAwait(false);
-                        await webSocket.ConnectAsync(_config.WsServer, cancellationToken).ConfigureAwait(false);
-                        _connectFailCount = 0;
-                    }
-                    catch
-                    {
-                        _connectFailCount = Math.Min(8, _connectFailCount + 1);
-                        ExcSuppress.Dispose(webSocket);
-                        throw;
-                    }
-                    Volatile.Write(ref _connectedVersion, nextVersion);
+                    using var source = new CancellationTokenSource(_config.WsReconnectTimeout);
+                    var cancellationToken = source.Token;
+                    webSocket = await CreateSocketAsync(cancellationToken).ConfigureAwait(false);
+                    await webSocket.ConnectAsync(_config.WsServer, cancellationToken).ConfigureAwait(false);
+                    _connectFailCount = 0;
+                    Volatile.Write(ref _connectedVersion, version + 1);
+                }
+                catch
+                {
+                    _connectFailCount = Math.Min(8, _connectFailCount + 1);
+                    ExcSuppress.Dispose(webSocket);
+                    throw;
                 }
                 finally
                 {
                     _semaphore.Release();
                 }
-                StartProcessing(webSocket, nextVersion);
+                StartProcessing(webSocket, version + 1);
+            }
+            else
+            {
+                throw new WebSocketConnectionException("Obtain lock timeout");
             }
         }
         catch (ObjectDisposedException)
