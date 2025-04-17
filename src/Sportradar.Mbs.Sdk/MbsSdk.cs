@@ -66,7 +66,7 @@ public class MbsSdk : IDisposable
         {
             if (_disposed) throw new ObjectDisposedException(nameof(MbsSdk));
             if (_connected) return;
-            Task.Run(async () => await _protocolProvider.Connect()).Wait();
+            Task.Run(_protocolProvider.Connect).Wait();
             _connected = true;
         }
     }

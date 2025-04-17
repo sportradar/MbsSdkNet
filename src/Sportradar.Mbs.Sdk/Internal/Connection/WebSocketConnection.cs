@@ -74,7 +74,7 @@ internal class WebSocketConnection : IDisposable
                         int delay = (int)(maxSleep - diffTs);
                         if (delay > 0)
                         {
-                            await Task.Delay(delay);
+                            await Task.Delay(delay).ConfigureAwait(false);
                         }
                     }
                     _connectAttemptTs = TimeUtils.NowInUtcMillis();
@@ -258,7 +258,7 @@ internal class WebSocketConnection : IDisposable
         var buffer = new ArraySegment<byte>(new byte[16384]);
         var result = await webSocket.ReceiveAsync(buffer, source.Token).ConfigureAwait(false);
         if (result.MessageType == WebSocketMessageType.Close)
-            await CloseSocketAsync(webSocket, result);
+            await CloseSocketAsync(webSocket, result).ConfigureAwait(false);
 
         return (result, buffer.Array ?? Array.Empty<byte>());
     }

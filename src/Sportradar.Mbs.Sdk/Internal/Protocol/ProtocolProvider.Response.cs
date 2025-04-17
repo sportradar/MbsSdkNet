@@ -42,8 +42,8 @@ internal partial class ProtocolProvider
         while (awaiter.PrepareNewTry(_config.ProtocolRetryCount, out var tryCount))
             try
             {
-                await EnqueueMessageAsync(message);
-                await AwaitResponseAsync(awaiter, tryCount);
+                await EnqueueMessageAsync(message).ConfigureAwait(false);
+                await AwaitResponseAsync(awaiter, tryCount).ConfigureAwait(false);
             }
             catch (SdkException e)
             {

@@ -19,7 +19,7 @@ internal partial class ProtocolProvider
     private void StartDispatcher()
     {
         if (_connected)
-            Task.Run(Dispatcher);
+            _ = Task.Run(Dispatcher);
     }
 
     private async void Dispatcher()
