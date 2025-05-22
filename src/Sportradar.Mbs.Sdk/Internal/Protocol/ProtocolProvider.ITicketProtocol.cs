@@ -46,6 +46,11 @@ internal partial class ProtocolProvider : ITicketProtocol
     public async Task<CashoutAckResponse> SendCashoutAckAsync(CashoutAckRequest request)
     {
         return await ProcessRequestAsync<CashoutAckResponse>("ticket-cashout-ack", request).ConfigureAwait(false);
+    }   
+    
+    public async Task<CashoutBuildResponse> SendCashoutBuildAsync(CashoutBuildRequest request)
+    {
+        return await ProcessRequestAsync<CashoutBuildResponse>("cashout-build", request).ConfigureAwait(false);
     }
 
     public async Task<ExtSettlementResponse> SendExtSettlementAsync(ExtSettlementRequest request)
