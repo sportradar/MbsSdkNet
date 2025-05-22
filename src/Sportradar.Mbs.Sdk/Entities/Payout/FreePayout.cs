@@ -20,6 +20,9 @@ public class FreePayout : PayoutBase
   [JsonPropertyName("currency")]
   public String? Currency { get; set; }
 
+  [JsonPropertyName("source")]
+  public PayoutSourceType? Source { get; set; }
+
   public static Builder NewBuilder()
   {
     return new Builder();
@@ -53,6 +56,12 @@ public class FreePayout : PayoutBase
     public Builder SetCurrency(String value)
     {
       this.instance.Currency = value;
+      return this;
+    }
+
+    public Builder SetSource(PayoutSourceType value)
+    {
+      this.instance.Source = value;
       return this;
     }
   }

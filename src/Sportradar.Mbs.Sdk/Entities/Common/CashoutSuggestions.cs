@@ -1,4 +1,4 @@
-using Sportradar.Mbs.Sdk.Internal.Utils;
+using Sportradar.Mbs.Sdk.Entities.Payout;
 using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Common;
@@ -6,13 +6,8 @@ namespace Sportradar.Mbs.Sdk.Entities.Common;
 public class CashoutSuggestions
 {
 
-  [JsonConverter(typeof(DecimalJsonConverter))]
   [JsonPropertyName("fairCashout")]
-  public decimal? FairCashout { get; set; }
-
-  [JsonConverter(typeof(DecimalJsonConverter))]
-  [JsonPropertyName("simpleCashout")]
-  public decimal? SimpleCashout { get; set; }
+  public PayoutBase[]? FairCashout { get; set; }
 
   [JsonPropertyName("cashoutId")]
   public String? CashoutId { get; set; }
@@ -20,16 +15,11 @@ public class CashoutSuggestions
   [JsonPropertyName("cashoutType")]
   public String? CashoutType { get; set; }
 
-  [JsonConverter(typeof(DecimalJsonConverter))]
-  [JsonPropertyName("maxWinCurrent")]
-  public decimal? MaxWinCurrent { get; set; }
+  [JsonPropertyName("maxPayout")]
+  public PayoutBase[]? MaxPayout { get; set; }
 
-  [JsonConverter(typeof(DecimalJsonConverter))]
-  [JsonPropertyName("partialCashout")]
-  public decimal? PartialCashout { get; set; }
-
-  [JsonPropertyName("currency")]
-  public String? Currency { get; set; }
+  [JsonPropertyName("cashout")]
+  public PayoutBase[]? Cashout { get; set; }
 
   public static Builder NewBuilder()
   {
@@ -49,16 +39,16 @@ public class CashoutSuggestions
       return this.instance;
     }
 
-    public Builder SetFairCashout(decimal value)
+    public Builder SetFairCashout(params PayoutBase[] value)
     {
       this.instance.FairCashout = value;
       return this;
     }
 
-    public Builder SetSimpleCashout(decimal value)
+    public Builder SetFairCashout<T>(IList<T> value) where T : PayoutBase
     {
-      this.instance.SimpleCashout = value;
-      return this;
+      PayoutBase[] arr = value.ToArray();
+      return SetFairCashout(arr);
     }
 
     public Builder SetCashoutId(String value)
@@ -73,22 +63,28 @@ public class CashoutSuggestions
       return this;
     }
 
-    public Builder SetMaxWinCurrent(decimal value)
+    public Builder SetMaxPayout(params PayoutBase[] value)
     {
-      this.instance.MaxWinCurrent = value;
+      this.instance.MaxPayout = value;
       return this;
     }
 
-    public Builder SetPartialCashout(decimal value)
+    public Builder SetMaxPayout<T>(IList<T> value) where T : PayoutBase
     {
-      this.instance.PartialCashout = value;
+      PayoutBase[] arr = value.ToArray();
+      return SetMaxPayout(arr);
+    }
+
+    public Builder SetCashout(params PayoutBase[] value)
+    {
+      this.instance.Cashout = value;
       return this;
     }
 
-    public Builder SetCurrency(String value)
+    public Builder SetCashout<T>(IList<T> value) where T : PayoutBase
     {
-      this.instance.Currency = value;
-      return this;
+      PayoutBase[] arr = value.ToArray();
+      return SetCashout(arr);
     }
   }
 }
