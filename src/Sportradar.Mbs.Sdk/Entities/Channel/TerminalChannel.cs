@@ -1,3 +1,4 @@
+using Sportradar.Mbs.Sdk.Entities.Location;
 using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Channel;
@@ -8,6 +9,9 @@ public class TerminalChannel : ChannelBase
   [JsonInclude]
   [JsonPropertyName("type")]
   private string Type => "terminal";
+
+  [JsonPropertyName("location")]
+  public LocationBase? Location { get; set; }
 
   [JsonPropertyName("terminalId")]
   public String? TerminalId { get; set; }
@@ -34,6 +38,12 @@ public class TerminalChannel : ChannelBase
     public TerminalChannel Build()
     {
       return this.instance;
+    }
+
+    public Builder SetLocation(LocationBase value)
+    {
+      this.instance.Location = value;
+      return this;
     }
 
     public Builder SetTerminalId(String value)

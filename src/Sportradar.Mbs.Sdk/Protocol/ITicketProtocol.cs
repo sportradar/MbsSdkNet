@@ -78,7 +78,15 @@ public interface ITicketProtocol
     /// <param name="request">The cashout build request to send.</param>
     /// <returns>A task that represents the asynchronous operation. The task result contains the cashout build response.</returns>
     /// <exception cref="SdkException">Thrown when operation has failed.</exception>
-    Task<CashoutBuildResponse> SendCashoutBuildAsync(CashoutBuildRequest request);
+    Task<CashoutBuildResponse> SendCashoutBuildAsync(CashoutBuildRequest request);    
+    
+    /// <summary>
+    /// Sends a cashout placement request asynchronously.
+    /// </summary>
+    /// <param name="request">The cashout placement request to send.</param>
+    /// <returns>A task that represents the asynchronous operation. The task result contains the cashout placement response.</returns>
+    /// <exception cref="SdkException">Thrown when operation has failed.</exception>
+    Task<CashoutPlacementResponse> SendCashoutPlacementAsync(CashoutPlacementRequest request);
     
     /// <summary>
     /// Sends an external settlement request asynchronously.
