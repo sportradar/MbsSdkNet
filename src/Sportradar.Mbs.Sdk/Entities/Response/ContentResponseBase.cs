@@ -12,19 +12,24 @@ public abstract class ContentResponseBase
     return DepositInformResponse.NewBuilder();
   }
 
-  public static ExtSettlementAckResponse.Builder NewExtSettlementAckResponseBuilder()
-  {
-    return ExtSettlementAckResponse.NewBuilder();
-  }
-
   public static AccountLimitInformResponse.Builder NewAccountLimitInformResponseBuilder()
   {
     return AccountLimitInformResponse.NewBuilder();
   }
 
+  public static ExtSettlementAckResponse.Builder NewExtSettlementAckResponseBuilder()
+  {
+    return ExtSettlementAckResponse.NewBuilder();
+  }
+
   public static CashoutInformResponse.Builder NewCashoutInformResponseBuilder()
   {
     return CashoutInformResponse.NewBuilder();
+  }
+
+  public static CashoutPlacementResponse.Builder NewCashoutPlacementResponseBuilder()
+  {
+    return CashoutPlacementResponse.NewBuilder();
   }
 
   public static AccountStatusInformResponse.Builder NewAccountStatusInformResponseBuilder()
@@ -42,14 +47,14 @@ public abstract class ContentResponseBase
     return AccountLimitReachedInformResponse.NewBuilder();
   }
 
-  public static CashoutResponse.Builder NewCashoutResponseBuilder()
-  {
-    return CashoutResponse.NewBuilder();
-  }
-
   public static TicketInformResponse.Builder NewTicketInformResponseBuilder()
   {
     return TicketInformResponse.NewBuilder();
+  }
+
+  public static CashoutResponse.Builder NewCashoutResponseBuilder()
+  {
+    return CashoutResponse.NewBuilder();
   }
 
   public static CancelResponse.Builder NewCancelResponseBuilder()
@@ -62,14 +67,14 @@ public abstract class ContentResponseBase
     return CancelAckResponse.NewBuilder();
   }
 
-  public static MaxStakeResponse.Builder NewMaxStakeResponseBuilder()
-  {
-    return MaxStakeResponse.NewBuilder();
-  }
-
   public static TicketBuildResponse.Builder NewTicketBuildResponseBuilder()
   {
     return TicketBuildResponse.NewBuilder();
+  }
+
+  public static MaxStakeResponse.Builder NewMaxStakeResponseBuilder()
+  {
+    return MaxStakeResponse.NewBuilder();
   }
 
   public static ErrorResponse.Builder NewErrorResponseBuilder()
@@ -140,6 +145,7 @@ public class ContentResponseBaseJsonConverter : JsonConverter<ContentResponseBas
       "cashout-ack-reply" => JsonSerializer.Deserialize<CashoutAckResponse>(root.GetRawText()),
       "cashout-build-reply" => JsonSerializer.Deserialize<CashoutBuildResponse>(root.GetRawText()),
       "cashout-inform-reply" => JsonSerializer.Deserialize<CashoutInformResponse>(root.GetRawText()),
+      "cashout-placement-reply" => JsonSerializer.Deserialize<CashoutPlacementResponse>(root.GetRawText()),
       "cashout-reply" => JsonSerializer.Deserialize<CashoutResponse>(root.GetRawText()),
       "casino-sessions-inform-reply" => JsonSerializer.Deserialize<CasinoSessionsResponse>(root.GetRawText()),
       "deposit-inform-reply" => JsonSerializer.Deserialize<DepositInformResponse>(root.GetRawText()),

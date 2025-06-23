@@ -7,14 +7,14 @@ namespace Sportradar.Mbs.Sdk.Entities.Request;
 public abstract class ContentRequestBase
 {
 
-  public static TicketInformRequest.Builder NewTicketInformRequestBuilder()
-  {
-    return TicketInformRequest.NewBuilder();
-  }
-
   public static CancelRequest.Builder NewCancelRequestBuilder()
   {
     return CancelRequest.NewBuilder();
+  }
+
+  public static TicketInformRequest.Builder NewTicketInformRequestBuilder()
+  {
+    return TicketInformRequest.NewBuilder();
   }
 
   public static AccountInterventionInformRequest.Builder NewAccountInterventionInformRequestBuilder()
@@ -22,14 +22,19 @@ public abstract class ContentRequestBase
     return AccountInterventionInformRequest.NewBuilder();
   }
 
+  public static TicketRequest.Builder NewTicketRequestBuilder()
+  {
+    return TicketRequest.NewBuilder();
+  }
+
   public static MaxStakeRequest.Builder NewMaxStakeRequestBuilder()
   {
     return MaxStakeRequest.NewBuilder();
   }
 
-  public static TicketRequest.Builder NewTicketRequestBuilder()
+  public static AccountStatusInformRequest.Builder NewAccountStatusInformRequestBuilder()
   {
-    return TicketRequest.NewBuilder();
+    return AccountStatusInformRequest.NewBuilder();
   }
 
   public static CashoutBuildRequest.Builder NewCashoutBuildRequestBuilder()
@@ -40,11 +45,6 @@ public abstract class ContentRequestBase
   public static CashoutAckRequest.Builder NewCashoutAckRequestBuilder()
   {
     return CashoutAckRequest.NewBuilder();
-  }
-
-  public static AccountStatusInformRequest.Builder NewAccountStatusInformRequestBuilder()
-  {
-    return AccountStatusInformRequest.NewBuilder();
   }
 
   public static DepositInformRequest.Builder NewDepositInformRequestBuilder()
@@ -62,11 +62,6 @@ public abstract class ContentRequestBase
     return CashoutRequest.NewBuilder();
   }
 
-  public static TicketAckRequest.Builder NewTicketAckRequestBuilder()
-  {
-    return TicketAckRequest.NewBuilder();
-  }
-
   public static TicketBuildRequest.Builder NewTicketBuildRequestBuilder()
   {
     return TicketBuildRequest.NewBuilder();
@@ -80,6 +75,11 @@ public abstract class ContentRequestBase
   public static CashoutInformRequest.Builder NewCashoutInformRequestBuilder()
   {
     return CashoutInformRequest.NewBuilder();
+  }
+
+  public static TicketAckRequest.Builder NewTicketAckRequestBuilder()
+  {
+    return TicketAckRequest.NewBuilder();
   }
 
   public static CancelAckRequest.Builder NewCancelAckRequestBuilder()
@@ -105,6 +105,11 @@ public abstract class ContentRequestBase
   public static ExtSettlementAckRequest.Builder NewExtSettlementAckRequestBuilder()
   {
     return ExtSettlementAckRequest.NewBuilder();
+  }
+
+  public static CashoutPlacementRequest.Builder NewCashoutPlacementRequestBuilder()
+  {
+    return CashoutPlacementRequest.NewBuilder();
   }
 
   public static BalanceChangeInformRequest.Builder NewBalanceChangeInformRequestBuilder()
@@ -136,6 +141,7 @@ public class ContentRequestBaseJsonConverter : JsonConverter<ContentRequestBase>
       "cashout-ack" => JsonSerializer.Deserialize<CashoutAckRequest>(root.GetRawText()),
       "cashout-build" => JsonSerializer.Deserialize<CashoutBuildRequest>(root.GetRawText()),
       "cashout-inform" => JsonSerializer.Deserialize<CashoutInformRequest>(root.GetRawText()),
+      "cashout-placement" => JsonSerializer.Deserialize<CashoutPlacementRequest>(root.GetRawText()),
       "casino-sessions-inform" => JsonSerializer.Deserialize<CasinoSessionsRequest>(root.GetRawText()),
       "deposit-inform" => JsonSerializer.Deserialize<DepositInformRequest>(root.GetRawText()),
       "ext-settlement" => JsonSerializer.Deserialize<ExtSettlementRequest>(root.GetRawText()),
