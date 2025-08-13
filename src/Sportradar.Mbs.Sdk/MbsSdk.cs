@@ -42,6 +42,13 @@ public class MbsSdk : IDisposable
     /// Gets the balance protocol.
     /// </summary>
     public IBalanceProtocol BalanceProtocol => _protocolProvider.BalanceProtocol;
+    
+    /// <summary>
+    /// Gets the gaming protocol.
+    /// </summary>
+    public IGamingProtocol GamingProtocol => _protocolProvider.GamingProtocol;
+    
+    
 
     /// <summary>
     /// Disposes the SDK and releases all resources.
