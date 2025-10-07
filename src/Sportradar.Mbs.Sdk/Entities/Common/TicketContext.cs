@@ -1,18 +1,23 @@
 using Sportradar.Mbs.Sdk.Entities.Channel;
+using Sportradar.Mbs.Sdk.Entities.Common;
 using Sportradar.Mbs.Sdk.Entities.Payout;
 using Sportradar.Mbs.Sdk.Entities.Ref;
+using System;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Common;
 
 public class TicketContext
 {
-
   [JsonPropertyName("walletId")]
   public String? WalletId { get; set; }
 
   [JsonPropertyName("ref")]
   public TicketRefBase? Ref { get; set; }
+
+  [JsonPropertyName("rates")]
+  public ExchangeRate[]? Rates { get; set; }
 
   [JsonPropertyName("channel")]
   public ChannelBase? Channel { get; set; }
@@ -54,6 +59,18 @@ public class TicketContext
     {
       this.instance.Ref = value;
       return this;
+    }
+
+    public Builder SetRates(params ExchangeRate[] value)
+    {
+      this.instance.Rates = value;
+      return this;
+    }
+
+    public Builder SetRates<T>(IList<T> value) where T : ExchangeRate
+    {
+      ExchangeRate[] arr = value.ToArray();
+      return SetRates(arr);
     }
 
     public Builder SetChannel(ChannelBase value)

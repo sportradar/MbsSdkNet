@@ -72,4 +72,9 @@ internal partial class ProtocolProvider : ITicketProtocol
     {
         return await ProcessRequestAsync<MaxStakeResponse>("max-stake", request).ConfigureAwait(false);
     }
+
+    public async Task<PayoutModifierSettlementResponse> SendPayoutModifierSettlementAsync(PayoutModifierSettlementRequest request)
+    {
+      return await ProcessRequestAsync<PayoutModifierSettlementResponse>("payout-modifier-settlement", request).ConfigureAwait(false);
+    }
 }

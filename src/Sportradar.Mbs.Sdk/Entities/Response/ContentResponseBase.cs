@@ -1,3 +1,4 @@
+using Sportradar.Mbs.Sdk.Entities.Response;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -122,6 +123,10 @@ public abstract class ContentResponseBase
     return WithdrawalInformResponse.NewBuilder();
   }
 
+  public static PayoutModifierSettlementResponse.Builder NewPayoutModifierSettlementResponseBuilder()
+  {
+    return PayoutModifierSettlementResponse.NewBuilder();
+  }
 }
 
 public class ContentResponseBaseJsonConverter : JsonConverter<ContentResponseBase>
@@ -153,6 +158,7 @@ public class ContentResponseBaseJsonConverter : JsonConverter<ContentResponseBas
       "ext-settlement-ack-reply" => JsonSerializer.Deserialize<ExtSettlementAckResponse>(root.GetRawText()),
       "ext-settlement-reply" => JsonSerializer.Deserialize<ExtSettlementResponse>(root.GetRawText()),
       "max-stake-reply" => JsonSerializer.Deserialize<MaxStakeResponse>(root.GetRawText()),
+      "payout-modifier-settlement-reply" => JsonSerializer.Deserialize<PayoutModifierSettlementResponse>(root.GetRawText()),
       "ticket-ack-reply" => JsonSerializer.Deserialize<TicketAckResponse>(root.GetRawText()),
       "ticket-build-reply" => JsonSerializer.Deserialize<TicketBuildResponse>(root.GetRawText()),
       "ticket-inform-reply" => JsonSerializer.Deserialize<TicketInformResponse>(root.GetRawText()),

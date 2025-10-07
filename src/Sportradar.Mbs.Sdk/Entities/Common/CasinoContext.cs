@@ -1,13 +1,18 @@
 using Sportradar.Mbs.Sdk.Entities.Channel;
+using Sportradar.Mbs.Sdk.Entities.Common;
+using System;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Sportradar.Mbs.Sdk.Entities.Common;
 
 public class CasinoContext
 {
-
   [JsonPropertyName("walletId")]
   public String? WalletId { get; set; }
+
+  [JsonPropertyName("rates")]
+  public ExchangeRate[]? Rates { get; set; }
 
   [JsonPropertyName("channel")]
   public ChannelBase? Channel { get; set; }
@@ -37,6 +42,18 @@ public class CasinoContext
     {
       this.instance.WalletId = value;
       return this;
+    }
+
+    public Builder SetRates(params ExchangeRate[] value)
+    {
+      this.instance.Rates = value;
+      return this;
+    }
+
+    public Builder SetRates<T>(IList<T> value) where T : ExchangeRate
+    {
+      ExchangeRate[] arr = value.ToArray();
+      return SetRates(arr);
     }
 
     public Builder SetChannel(ChannelBase value)

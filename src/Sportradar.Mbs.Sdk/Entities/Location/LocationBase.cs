@@ -1,3 +1,4 @@
+using Sportradar.Mbs.Sdk.Entities.Location;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -6,7 +7,6 @@ namespace Sportradar.Mbs.Sdk.Entities.Location;
 [JsonConverter(typeof(LocationBaseJsonConverter))]
 public abstract class LocationBase
 {
-
   public static GeoLocation.Builder NewGeoLocationBuilder()
   {
     return GeoLocation.NewBuilder();
@@ -15,10 +15,9 @@ public abstract class LocationBase
 
 public class LocationBaseJsonConverter : JsonConverter<LocationBase>
 {
-
   public override LocationBase Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
   {
-    using var doc = JsonDocument.ParseValue(ref reader);
+    using JsonDocument doc = JsonDocument.ParseValue(ref reader);
     var root = doc.RootElement;
     var type = root.GetProperty("type").GetString();
 

@@ -1,3 +1,4 @@
+using Sportradar.Mbs.Sdk.Entities.Selection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -42,6 +43,10 @@ public abstract class SelectionBase
     return AccumulatorSelection.NewBuilder();
   }
 
+  public static PayoutModifierSelection.Builder NewPayoutModifierSelectionBuilder()
+  {
+    return PayoutModifierSelection.NewBuilder();
+  }
 }
 
 public class SelectionBaseJsonConverter : JsonConverter<SelectionBase>
@@ -58,6 +63,7 @@ public class SelectionBaseJsonConverter : JsonConverter<SelectionBase>
       "accumulator" => JsonSerializer.Deserialize<AccumulatorSelection>(root.GetRawText()),
       "external" => JsonSerializer.Deserialize<ExtSelection>(root.GetRawText()),
       "odds-boost" => JsonSerializer.Deserialize<OddsBoostSelection>(root.GetRawText()),
+      "payout-modifier" => JsonSerializer.Deserialize<PayoutModifierSelection>(root.GetRawText()),
       "system" => JsonSerializer.Deserialize<SystemSelection>(root.GetRawText()),
       "uf" => JsonSerializer.Deserialize<UfSelection>(root.GetRawText()),
       "uf-custom-bet" => JsonSerializer.Deserialize<UfCustomBetSelection>(root.GetRawText()),

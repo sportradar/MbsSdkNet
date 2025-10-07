@@ -1,3 +1,4 @@
+using Sportradar.Mbs.Sdk.Entities.Resulting;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -6,7 +7,6 @@ namespace Sportradar.Mbs.Sdk.Entities.Resulting;
 [JsonConverter(typeof(SelectionResultBaseJsonConverter))]
 public abstract class SelectionResultBase
 {
-
   public static CancelSelectionResult.Builder NewCancelSelectionResultBuilder()
   {
     return CancelSelectionResult.NewBuilder();
@@ -40,10 +40,9 @@ public abstract class SelectionResultBase
 
 public class SelectionResultBaseJsonConverter : JsonConverter<SelectionResultBase>
 {
-
   public override SelectionResultBase Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
   {
-    using var doc = JsonDocument.ParseValue(ref reader);
+    using JsonDocument doc = JsonDocument.ParseValue(ref reader);
     var root = doc.RootElement;
     var type = root.GetProperty("type").GetString();
 

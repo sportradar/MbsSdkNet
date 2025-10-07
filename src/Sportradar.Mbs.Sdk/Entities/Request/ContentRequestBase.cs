@@ -1,3 +1,4 @@
+using Sportradar.Mbs.Sdk.Entities.Request;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -117,6 +118,10 @@ public abstract class ContentRequestBase
     return BalanceChangeInformRequest.NewBuilder();
   }
 
+  public static PayoutModifierSettlementRequest.Builder NewPayoutModifierSettlementRequestBuilder()
+  {
+    return PayoutModifierSettlementRequest.NewBuilder();
+  }
 }
 
 public class ContentRequestBaseJsonConverter : JsonConverter<ContentRequestBase>
@@ -147,6 +152,7 @@ public class ContentRequestBaseJsonConverter : JsonConverter<ContentRequestBase>
       "ext-settlement" => JsonSerializer.Deserialize<ExtSettlementRequest>(root.GetRawText()),
       "ext-settlement-ack" => JsonSerializer.Deserialize<ExtSettlementAckRequest>(root.GetRawText()),
       "max-stake" => JsonSerializer.Deserialize<MaxStakeRequest>(root.GetRawText()),
+      "payout-modifier-settlement" => JsonSerializer.Deserialize<PayoutModifierSettlementRequest>(root.GetRawText()),
       "ticket" => JsonSerializer.Deserialize<TicketRequest>(root.GetRawText()),
       "ticket-ack" => JsonSerializer.Deserialize<TicketAckRequest>(root.GetRawText()),
       "ticket-build" => JsonSerializer.Deserialize<TicketBuildRequest>(root.GetRawText()),
