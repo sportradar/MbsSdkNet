@@ -4,9 +4,16 @@ using Sportradar.Mbs.Sdk.Protocol;
 
 namespace Sportradar.Mbs.Sdk.Internal.Protocol;
 
-internal partial class ProtocolProvider : IAccountProtocol
+internal class AccountProtocol : IAccountProtocol
 {
-    internal IAccountProtocol AccountProtocol => this;
+    private readonly long _operatorId;
+    private readonly ProtocolEngine _engine;
+
+    internal AccountProtocol(long operatorId, ProtocolEngine engine)
+    {
+        _operatorId = operatorId;
+        _engine = engine;
+    }
 
     /// <summary>
     /// Sends an account status inform request.
@@ -15,10 +22,10 @@ internal partial class ProtocolProvider : IAccountProtocol
     /// <returns>The response containing account status details.</returns>
     /// <exception cref="SdkException">Thrown when operation has failed.</exception>
     public async Task<AccountStatusInformResponse> SendAccountStatusInformAsync(
-       AccountStatusInformRequest request)
+        AccountStatusInformRequest request)
     {
-        return await ProcessRequestAsync<AccountStatusInformResponse>(
-            "account-status-inform", request).ConfigureAwait(false);
+        return await _engine.ProcessRequestAsync<AccountStatusInformResponse>(
+            _operatorId, "account-status-inform", request).ConfigureAwait(false);
     }
 
     /// <summary>
@@ -27,10 +34,10 @@ internal partial class ProtocolProvider : IAccountProtocol
     /// <param name="request">The account limit request to send.</param>
     /// <returns>The response indicating the status of the account limit update.</returns>
     public async Task<AccountLimitInformResponse> SendAccountLimitInformAsync(
-       AccountLimitInformRequest request)
+        AccountLimitInformRequest request)
     {
-        return await ProcessRequestAsync<AccountLimitInformResponse>(
-            "account-limit-inform", request).ConfigureAwait(false);
+        return await _engine.ProcessRequestAsync<AccountLimitInformResponse>(
+            _operatorId, "account-limit-inform", request).ConfigureAwait(false);
     }
 
     /// <summary>
@@ -39,10 +46,10 @@ internal partial class ProtocolProvider : IAccountProtocol
     /// <param name="request">The limit reached request to send.</param>
     /// <returns>The response indicating the status of the limit reached notification.</returns>
     public async Task<AccountLimitReachedInformResponse> SendAccountLimitReachedInformAsync(
-       AccountLimitReachedInformRequest request)
+        AccountLimitReachedInformRequest request)
     {
-        return await ProcessRequestAsync<AccountLimitReachedInformResponse>(
-            "account-limit-reached-inform", request).ConfigureAwait(false);
+        return await _engine.ProcessRequestAsync<AccountLimitReachedInformResponse>(
+            _operatorId, "account-limit-reached-inform", request).ConfigureAwait(false);
     }
 
     /// <summary>
@@ -51,9 +58,9 @@ internal partial class ProtocolProvider : IAccountProtocol
     /// <param name="request">The account intervention request to send.</param>
     /// <returns>The response indicating the status of the intervention notification.</returns>
     public async Task<AccountInterventionInformResponse> SendAccountInterventionInformAsync(
-       AccountInterventionInformRequest request)
+        AccountInterventionInformRequest request)
     {
-        return await ProcessRequestAsync<AccountInterventionInformResponse>(
-            "account-intervention-inform", request).ConfigureAwait(false);
+        return await _engine.ProcessRequestAsync<AccountInterventionInformResponse>(
+            _operatorId, "account-intervention-inform", request).ConfigureAwait(false);
     }
 }

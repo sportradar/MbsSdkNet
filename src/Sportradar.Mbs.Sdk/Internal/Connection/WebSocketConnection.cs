@@ -77,6 +77,7 @@ internal class WebSocketConnection : IDisposable
                             await Task.Delay(delay).ConfigureAwait(false);
                         }
                     }
+
                     _connectAttemptTs = TimeUtils.NowInUtcMillis();
 
                     using var source = new CancellationTokenSource(_config.WsReconnectTimeout);
@@ -96,6 +97,7 @@ internal class WebSocketConnection : IDisposable
                 {
                     _semaphore.Release();
                 }
+
                 StartProcessing(webSocket, version + 1);
             }
             else
@@ -105,7 +107,6 @@ internal class WebSocketConnection : IDisposable
         }
         catch (ObjectDisposedException)
         {
-
         }
     }
 
@@ -192,8 +193,17 @@ internal class WebSocketConnection : IDisposable
                     continue;
                 }
 
-                await SendMessageAsync(webSocket, sendMsg).ConfigureAwait(false);
-                _outputBuffer.Writer.TryWrite(new SentWsOutputMessage(msg));
+                try
+                {
+                    await SendMessageAsync(webSocket, sendMsg).ConfigureAwait(false);
+                    _outputBuffer.Writer.TryWrite(new SentWsOutputMessage(msg));
+                }
+                catch (Exception exc)
+                {
+                    var sdkException = exc as SdkException ?? new WebSocketConnectionException(exc);
+                    _outputBuffer.Writer.TryWrite(new ExcWsOutputMessage(msg, sdkException));
+                    throw;
+                }
             }
         }
         catch (Exception e)

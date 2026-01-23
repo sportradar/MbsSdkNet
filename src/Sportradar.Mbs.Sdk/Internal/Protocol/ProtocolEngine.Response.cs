@@ -8,7 +8,7 @@ using Sportradar.Mbs.Sdk.Internal.Utils;
 
 namespace Sportradar.Mbs.Sdk.Internal.Protocol;
 
-internal partial class ProtocolProvider
+internal partial class ProtocolEngine
 {
     private static readonly int ChunkSize = 32_000;
     private static readonly int MessageSize = 4 * ChunkSize;
@@ -188,7 +188,7 @@ internal partial class ProtocolProvider
                 var task = _source?.Task;
                 if (task != null && task.IsCompleted && !task.IsFaulted) return false;
 
-                _source = new();
+                _source = new(TaskCreationOptions.RunContinuationsAsynchronously);
                 return true;
             }
         }

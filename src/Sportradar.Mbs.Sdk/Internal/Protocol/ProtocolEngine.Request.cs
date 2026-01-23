@@ -6,9 +6,9 @@ using Sportradar.Mbs.Sdk.Internal.Utils;
 
 namespace Sportradar.Mbs.Sdk.Internal.Protocol;
 
-internal partial class ProtocolProvider
+internal partial class ProtocolEngine
 {
-    private async Task<T> ProcessRequestAsync<T>(string operation, ContentRequestBase content)
+    internal async Task<T> ProcessRequestAsync<T>(long operatorId, string? operation, ContentRequestBase content)
         where T : ContentResponseBase
     {
         CheckConnected();
@@ -21,7 +21,7 @@ internal partial class ProtocolProvider
                 Operation = operation,
                 CorrelationId = correlationId,
                 Version = "3.0",
-                OperatorId = _config.ProtocolOperatorId,
+                OperatorId = operatorId,
                 TimestampUtc = TimeUtils.NowInUtcMillis()
             };
             return await EnqueueRequestAndAwaitResponseAsync<T>(correlationId, request).ConfigureAwait(false);

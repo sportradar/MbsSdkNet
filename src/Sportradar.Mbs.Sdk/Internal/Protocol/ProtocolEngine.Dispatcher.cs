@@ -6,7 +6,7 @@ using Sportradar.Mbs.Sdk.Internal.Utils;
 
 namespace Sportradar.Mbs.Sdk.Internal.Protocol;
 
-internal partial class ProtocolProvider
+internal partial class ProtocolEngine
 {
     public event UnhandledExceptionEventHandler? UnhandledException;
 
@@ -84,7 +84,7 @@ internal partial class ProtocolProvider
     {
         try
         {
-            var invalidRequestException = new ProtocolInvalidResponseException("Invalid request");
+            var invalidRequestException = new ProtocolInvalidRequestException("Invalid request");
             if (ResponseReceived(message.CorrelationId, invalidRequestException)) return;
 
             HandleException(invalidRequestException);

@@ -1,62 +1,19 @@
-using System.Threading.Channels;
-using Sportradar.Mbs.Sdk.Exceptions;
-using Sportradar.Mbs.Sdk.Internal.Config;
-using Sportradar.Mbs.Sdk.Internal.Connection;
-using Sportradar.Mbs.Sdk.Internal.Connection.Messages.Base;
-using Sportradar.Mbs.Sdk.Internal.Utils;
+using Sportradar.Mbs.Sdk.Protocol;
 
 namespace Sportradar.Mbs.Sdk.Internal.Protocol;
 
-internal partial class ProtocolProvider : IDisposable
+internal class ProtocolProvider : IProtocolProvider
 {
-    private readonly IProtocolProviderConfig _config;
-    private readonly ConnectionProvider _connectionProvider;
-    private readonly Channel<WsInputMessage> _wsInputBuffer;
-    private readonly Channel<WsOutputMessage> _wsOutputBuffer;
-
-    private volatile bool _connected;
-
-    internal ProtocolProvider(MbsSdkConfig mbsSdkConfig)
+    internal ProtocolProvider(long operatorId, ProtocolEngine engine)
     {
-        var config = new ImmutableConfig(mbsSdkConfig);
-        _config = config;
-        _wsInputBuffer = Channel.CreateBounded<WsInputMessage>(new BoundedChannelOptions(1)
-        {
-            SingleReader = false,
-            SingleWriter = false,
-            AllowSynchronousContinuations = false,
-            Capacity = 2 * (_config.ProtocolRetryCount + 1) * _config.ProtocolMaxSendBufferSize,
-            FullMode = BoundedChannelFullMode.Wait
-        });
-        _wsOutputBuffer = Channel.CreateBounded<WsOutputMessage>(new BoundedChannelOptions(1)
-        {
-            SingleReader = false,
-            SingleWriter = false,
-            AllowSynchronousContinuations = false,
-            Capacity = 3 * (_config.ProtocolRetryCount + 1) * _config.ProtocolMaxSendBufferSize,
-            FullMode = BoundedChannelFullMode.Wait
-        });
-        _connectionProvider = new ConnectionProvider(_wsInputBuffer, _wsOutputBuffer, config);
+        AccountProtocol = new AccountProtocol(operatorId, engine);
+        BalanceProtocol = new BalanceProtocol(operatorId, engine);
+        GamingProtocol = new GamingProtocol(operatorId, engine);
+        TicketProtocol = new TicketProtocol(operatorId, engine);
     }
-
-    public void Dispose()
-    {
-        ExcSuppress.Invoke(() => UnhandledException = null);
-        _connected = false;
-        ExcSuppress.Invoke(() => _wsInputBuffer.Writer.Complete());
-        ExcSuppress.Dispose(_connectionProvider);
-    }
-
-    internal async Task Connect()
-    {
-        using var source = new CancellationTokenSource(_config.ProtocolConnectTimeout);
-        await _connectionProvider.ConnectAsync(source.Token).ConfigureAwait(false);
-        _connected = true;
-        StartDispatchers();
-    }
-
-    private void CheckConnected()
-    {
-        if (!_connected) throw new SdkNotConnectedException();
-    }
+    
+    public ITicketProtocol TicketProtocol { get; }
+    public IAccountProtocol AccountProtocol { get; }
+    public IBalanceProtocol BalanceProtocol { get; }
+    public IGamingProtocol GamingProtocol { get; }
 }

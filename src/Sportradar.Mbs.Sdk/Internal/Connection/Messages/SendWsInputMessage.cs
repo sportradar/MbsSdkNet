@@ -14,7 +14,7 @@ internal class SendWsInputMessage : WsInputMessage
 
   internal List<byte[]> Content { get; }
 
-  internal bool IsSuppressed { get { return _suppressed; } }
+  internal bool IsSuppressed => _suppressed;
 
   internal void SuppressSend()
   {

@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using Sportradar.Mbs.Sdk.Internal.Protocol;
 using Sportradar.Mbs.Sdk.Internal.Utils;
 using Sportradar.Mbs.Sdk.Protocol;
@@ -7,11 +8,13 @@ namespace Sportradar.Mbs.Sdk;
 /// <summary>
 /// Represents the main class for interacting with the MBS service.
 /// </summary>
-public class MbsSdk : IDisposable
+public class MbsSdk : IProtocolProvider, IDisposable
 {
     private readonly object _lock;
-    private readonly ProtocolProvider _protocolProvider;
+    private readonly ProtocolEngine _protocolEngine;
     private readonly Action<MbsSdk, Exception>? _unhandledExceptionHandler;
+    private readonly ProtocolProvider _defaultProvider;
+    private readonly ConcurrentDictionary<long, ProtocolProvider> _providers = new();
 
     private bool _connected;
     private bool _disposed;
@@ -23,33 +26,42 @@ public class MbsSdk : IDisposable
     public MbsSdk(MbsSdkConfig config)
     {
         _unhandledExceptionHandler = config.UnhandledExceptionHandler;
-        _protocolProvider = new ProtocolProvider(config);
-        _protocolProvider.UnhandledException += ProtocolProviderOnUnhandledException;
+        _protocolEngine = new ProtocolEngine(config);
+        _defaultProvider = new ProtocolProvider(config.OperatorId, _protocolEngine);
+        _providers[config.OperatorId] = _defaultProvider;
+        _protocolEngine.UnhandledException += ProtocolOnUnhandledException;
         _lock = new object();
     }
 
     /// <summary>
     /// Gets the ticket protocol.
     /// </summary>
-    public ITicketProtocol TicketProtocol => _protocolProvider.TicketProtocol;
+    public ITicketProtocol TicketProtocol => _defaultProvider.TicketProtocol;
 
     /// <summary>
     /// Gets the account protocol.
     /// </summary>
-    public IAccountProtocol AccountProtocol => _protocolProvider.AccountProtocol;
+    public IAccountProtocol AccountProtocol => _defaultProvider.AccountProtocol;
 
     /// <summary>
     /// Gets the balance protocol.
     /// </summary>
-    public IBalanceProtocol BalanceProtocol => _protocolProvider.BalanceProtocol;
-    
+    public IBalanceProtocol BalanceProtocol => _defaultProvider.BalanceProtocol;
+
     /// <summary>
     /// Gets the gaming protocol.
     /// </summary>
-    public IGamingProtocol GamingProtocol => _protocolProvider.GamingProtocol;
+    public IGamingProtocol GamingProtocol => _defaultProvider.GamingProtocol;
     
+    /// <summary>
+    /// Gets the protocol provider for the specified operator ID.
+    /// </summary>
+    /// <param name="operatorId">The operator ID.</param>
+    /// <returns>The protocol provider for the specified operator ID.</returns>
+    public IProtocolProvider GetProtocolProvider(long operatorId) {
+        return _providers.GetOrAdd(operatorId, oId => new ProtocolProvider(oId, _protocolEngine));
+    }
     
-
     /// <summary>
     /// Disposes the SDK and releases all resources.
     /// </summary>
@@ -60,7 +72,7 @@ public class MbsSdk : IDisposable
             if (_disposed) return;
 
             _disposed = true;
-            ExcSuppress.Dispose(_protocolProvider);
+            ExcSuppress.Dispose(_protocolEngine);
         }
     }
 
@@ -73,7 +85,7 @@ public class MbsSdk : IDisposable
         {
             if (_disposed) throw new ObjectDisposedException(nameof(MbsSdk));
             if (_connected) return;
-            Task.Run(_protocolProvider.Connect).Wait();
+            Task.Run(_protocolEngine.Connect).Wait();
             _connected = true;
         }
     }
@@ -81,7 +93,7 @@ public class MbsSdk : IDisposable
     /// <summary>
     /// Handles unhandled exceptions from the protocol provider.
     /// </summary>
-    private void ProtocolProviderOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+    private void ProtocolOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
     {
         try
         {

@@ -4,9 +4,16 @@ using Sportradar.Mbs.Sdk.Protocol;
 
 namespace Sportradar.Mbs.Sdk.Internal.Protocol;
 
-internal partial class ProtocolProvider : IBalanceProtocol
+internal class BalanceProtocol : IBalanceProtocol
 {
-    internal IBalanceProtocol BalanceProtocol => this;
+    private readonly long _operatorId;
+    private readonly ProtocolEngine _engine;
+
+    internal BalanceProtocol(long operatorId, ProtocolEngine engine)
+    {
+        _operatorId = operatorId;
+        _engine = engine;
+    }
 
     /// <summary>
     /// Sends a deposit inform request.
@@ -15,8 +22,8 @@ internal partial class ProtocolProvider : IBalanceProtocol
     /// <returns>The response indicating the status of the deposit notification.</returns>
     public async Task<DepositInformResponse> SendDepositInformAsync(DepositInformRequest request)
     {
-        return await ProcessRequestAsync<DepositInformResponse>(
-            "balance-deposit-inform", request).ConfigureAwait(false);
+        return await _engine.ProcessRequestAsync<DepositInformResponse>(
+            _operatorId, "balance-deposit-inform", request).ConfigureAwait(false);
     }
 
     /// <summary>
@@ -26,7 +33,7 @@ internal partial class ProtocolProvider : IBalanceProtocol
     /// <returns>The response indicating the status of the withdrawal notification.</returns>
     public async Task<WithdrawalInformResponse> SendWithdrawalInformAsync(WithdrawalInformRequest request)
     {
-        return await ProcessRequestAsync<WithdrawalInformResponse>(
-            "balance-withdrawal-inform", request).ConfigureAwait(false);
+        return await _engine.ProcessRequestAsync<WithdrawalInformResponse>(
+            _operatorId, "balance-withdrawal-inform", request).ConfigureAwait(false);
     }
 }
