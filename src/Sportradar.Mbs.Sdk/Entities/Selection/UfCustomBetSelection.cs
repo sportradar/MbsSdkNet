@@ -16,6 +16,12 @@ public class UfCustomBetSelection : SelectionBase
   [JsonPropertyName("odds")]
   public OddsBase? Odds { get; set; }
 
+  [JsonPropertyName("harmOddsApplied")]
+  public bool? HarmOddsApplied { get; set; }
+
+  [JsonPropertyName("useHarmOdds")]
+  public bool UseHarmOdds { get; set; }
+
   public static Builder NewBuilder()
   {
     return new Builder();
@@ -49,6 +55,18 @@ public class UfCustomBetSelection : SelectionBase
     public Builder SetOdds(OddsBase value)
     {
       this.instance.Odds = value;
+      return this;
+    }
+
+    public Builder SetHarmOddsApplied(bool value)
+    {
+      this.instance.HarmOddsApplied = value;
+      return this;
+    }
+
+    public Builder SetUseHarmOdds(bool value)
+    {
+      this.instance.UseHarmOdds = value;
       return this;
     }
   }

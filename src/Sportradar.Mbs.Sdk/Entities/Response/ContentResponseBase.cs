@@ -127,6 +127,21 @@ public abstract class ContentResponseBase
   {
     return PayoutModifierSettlementResponse.NewBuilder();
   }
+
+  public static AutoCashoutResponse.Builder NewAutoCashoutResponseBuilder()
+  {
+    return AutoCashoutResponse.NewBuilder();
+  }
+
+  public static AutoCashoutCancelResponse.Builder NewAutoCashoutCancelResponseBuilder()
+  {
+    return AutoCashoutCancelResponse.NewBuilder();
+  }
+
+  public static CampaignOptinResponse.Builder NewCampaignOptinResponseBuilder()
+  {
+    return CampaignOptinResponse.NewBuilder();
+  }
 }
 
 public class ContentResponseBaseJsonConverter : JsonConverter<ContentResponseBase>
@@ -144,7 +159,10 @@ public class ContentResponseBaseJsonConverter : JsonConverter<ContentResponseBas
       "account-limit-inform-reply" => JsonSerializer.Deserialize<AccountLimitInformResponse>(root.GetRawText()),
       "account-limit-reached-inform-reply" => JsonSerializer.Deserialize<AccountLimitReachedInformResponse>(root.GetRawText()),
       "account-status-inform-reply" => JsonSerializer.Deserialize<AccountStatusInformResponse>(root.GetRawText()),
+      "auto-cashout-cancel-reply" => JsonSerializer.Deserialize<AutoCashoutCancelResponse>(root.GetRawText()),
+      "auto-cashout-reply" => JsonSerializer.Deserialize<AutoCashoutResponse>(root.GetRawText()),
       "balance-change-inform-reply" => JsonSerializer.Deserialize<BalanceChangeInformResponse>(root.GetRawText()),
+      "campaign-optin-reply" => JsonSerializer.Deserialize<CampaignOptinResponse>(root.GetRawText()),
       "cancel-ack-reply" => JsonSerializer.Deserialize<CancelAckResponse>(root.GetRawText()),
       "cancel-reply" => JsonSerializer.Deserialize<CancelResponse>(root.GetRawText()),
       "cashout-ack-reply" => JsonSerializer.Deserialize<CashoutAckResponse>(root.GetRawText()),

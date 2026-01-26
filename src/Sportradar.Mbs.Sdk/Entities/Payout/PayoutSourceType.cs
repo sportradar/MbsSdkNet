@@ -16,7 +16,8 @@ public enum PayoutSourceType
   CANCEL,
   FREE,
   ODDS_BOOST,
-  FREE_CASH
+  FREE_CASH,
+  PAYOUT_MODIFIER
 }
 
 public class PayoutSourceTypeJsonConverter : JsonConverter<PayoutSourceType>
@@ -38,6 +39,7 @@ public class PayoutSourceTypeJsonConverter : JsonConverter<PayoutSourceType>
       "free" => PayoutSourceType.FREE,
       "odds-boost" => PayoutSourceType.ODDS_BOOST,
       "free-cash" => PayoutSourceType.FREE_CASH,
+      "payout-modifier" => PayoutSourceType.PAYOUT_MODIFIER,
       _ => throw new JsonException("Unknown type of PayoutSourceType: " + jsonVal)
     };
   }
@@ -57,6 +59,7 @@ public class PayoutSourceTypeJsonConverter : JsonConverter<PayoutSourceType>
       PayoutSourceType.FREE => "free",
       PayoutSourceType.ODDS_BOOST => "odds-boost",
       PayoutSourceType.FREE_CASH => "free-cash",
+      PayoutSourceType.PAYOUT_MODIFIER => "payout-modifier",
       _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
     };
     writer.WriteStringValue(jsonVal);
